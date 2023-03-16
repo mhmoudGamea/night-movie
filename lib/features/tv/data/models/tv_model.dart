@@ -1,4 +1,4 @@
-// thi smodel used for tvOnTheAirCubit, tvPopularCubit, tvTopRatedCubit,
+// this model used for tvOnTheAirCubit, tvPopularCubit, tvTopRatedCubit,
 import 'package:equatable/equatable.dart';
 
 class TvModel extends Equatable {

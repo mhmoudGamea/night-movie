@@ -65,94 +65,96 @@ class Helper {
     };
   }
 
-  static List<String> getMovieGeners(List<dynamic> geners) {
+  static List<String> getMovieGeners(List<dynamic>? geners) {
     List<String> myGeners = [];
-    for (var element in geners) {
-      switch (element) {
-        case 10759:
-          myGeners.add("Action & Adventure");
-          break;
-        case 16:
-          myGeners.add("Animation");
-          break;
-        case 35:
-          myGeners.add("Comedy");
-          break;
-        case 80:
-          myGeners.add("Crime");
-          break;
-        case 99:
-          myGeners.add("Documentary");
-          break;
-        case 18:
-          myGeners.add("Drama");
-          break;
-        case 10751:
-          myGeners.add("Family");
-          break;
-        case 10762:
-          myGeners.add("Kids");
-          break;
-        case 9648:
-          myGeners.add("Mystery");
-          break;
-        case 10763:
-          myGeners.add("News");
-          break;
-        case 10764:
-          myGeners.add("Reality");
-          break;
-        case 10765:
-          myGeners.add("Sci-Fi & Fantasy");
-          break;
-        case 10766:
-          myGeners.add("Soap");
-          break;
-        case 10767:
-          myGeners.add("Talk");
-          break;
-        case 10768:
-          myGeners.add("War & Politics");
-          break;
-        case 37:
-          myGeners.add("Western");
-          break;
-        case 28:
-          myGeners.add("Action");
-          break;
-        case 12:
-          myGeners.add("Adventure");
-          break;
-        case 14:
-          myGeners.add("Fantasy");
-          break;
-        case 36:
-          myGeners.add("History");
-          break;
-        case 27:
-          myGeners.add("Horror");
-          break;
-        case 10402:
-          myGeners.add("Music");
-          break;
-        case 10749:
-          myGeners.add("Romance");
-          break;
-        case 878:
-          myGeners.add("Science Fiction");
-          break;
-        case 10770:
-          myGeners.add("TV Movie");
-          break;
-        case 53:
-          myGeners.add("Thriller");
-          break;
-        case 10752:
-          myGeners.add("War");
-          break;
-        default:
-          myGeners.add("Unknown");
-          break;
+    if (geners != null) {
+      for (var element in geners) {
+        switch (element) {
+          case 10759:
+            myGeners.add("Action & Adventure");
+            break;
+          case 16:
+            myGeners.add("Animation");
+            break;
+          case 35:
+            myGeners.add("Comedy");
+            break;
+          case 80:
+            myGeners.add("Crime");
+            break;
+          case 99:
+            myGeners.add("Documentary");
+            break;
+          case 18:
+            myGeners.add("Drama");
+            break;
+          case 10751:
+            myGeners.add("Family");
+            break;
+          case 10762:
+            myGeners.add("Kids");
+            break;
+          case 9648:
+            myGeners.add("Mystery");
+            break;
+          case 10763:
+            myGeners.add("News");
+            break;
+          case 10764:
+            myGeners.add("Reality");
+            break;
+          case 10765:
+            myGeners.add("Sci-Fi & Fantasy");
+            break;
+          case 10766:
+            myGeners.add("Soap");
+            break;
+          case 10767:
+            myGeners.add("Talk");
+            break;
+          case 10768:
+            myGeners.add("War & Politics");
+            break;
+          case 37:
+            myGeners.add("Western");
+            break;
+          case 28:
+            myGeners.add("Action");
+            break;
+          case 12:
+            myGeners.add("Adventure");
+            break;
+          case 14:
+            myGeners.add("Fantasy");
+            break;
+          case 36:
+            myGeners.add("History");
+            break;
+          case 27:
+            myGeners.add("Horror");
+            break;
+          case 10402:
+            myGeners.add("Music");
+            break;
+          case 10749:
+            myGeners.add("Romance");
+            break;
+          case 878:
+            myGeners.add("Science Fiction");
+            break;
+          case 10770:
+            myGeners.add("TV Movie");
+            break;
+          case 53:
+            myGeners.add("Thriller");
+            break;
+          case 10752:
+            myGeners.add("War");
+            break;
+          default:
+            myGeners.add("Unknown");
+            break;
+        }
       }
     }
     return myGeners;

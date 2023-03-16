@@ -4,7 +4,7 @@ import '../../../../../core/utils/helper.dart';
 import '../../../../../core/utils/styles.dart';
 
 class MovieGenerGenerated extends StatelessWidget {
-  final List<dynamic> geners;
+  final List<dynamic>? geners;
   const MovieGenerGenerated({Key? key, required this.geners}) : super(key: key);
 
   @override
