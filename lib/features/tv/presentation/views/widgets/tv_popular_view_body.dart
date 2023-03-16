@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:night_movie/features/tv/data/models/tv_model.dart';
-import 'package:night_movie/features/tv/presentation/model_views/tv_popular/tv_popular_cubit.dart';
 
 import '../../../../../core/widgets/custom_error_box.dart';
-import '../../../../../core/widgets/grid_view_list.dart';
+import '../../model_views/tv_popular/tv_popular_cubit.dart';
+import 'tv_grid_view_list.dart';
 
 class TvPopularViewBody extends StatelessWidget {
   const TvPopularViewBody({Key? key}) : super(key: key);
@@ -24,7 +23,7 @@ class TvPopularViewBody extends StatelessWidget {
       child: BlocBuilder<TvPopularCubit, TvPopularState>(
         builder: (context, state) {
           if (state is TvPopularSuccess) {
-            return GridViewList<TvModel>(model: state.tvs);
+            return TvGridViewList(model: state.tvs);
           } else if (state is TvPopularFailure) {
             return CustomErrorBox(errorMessage: state.error);
           } else {

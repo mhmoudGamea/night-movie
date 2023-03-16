@@ -5,5 +5,5 @@ import '../models/search_model/search_model.dart';
 
 abstract class SearchRepo {
   Future<Either<Failure, List<SearchModel>>> getSearch(
-      {required String movieName});
+      {required String search});
 }

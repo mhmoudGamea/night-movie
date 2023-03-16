@@ -10,20 +10,20 @@ import 'search_repo.dart';
 class SearchRepoImpl implements SearchRepo {
   @override
   Future<Either<Failure, List<SearchModel>>> getSearch({
-    required String movieName,
+    required String search,
   }) async {
     try {
       final response = await ApiServices.get(
-          endpoint: '/search/movie?api_key=$apiKey&query=$movieName');
-      List<SearchModel> searchedMovies = [];
+          endpoint: '/search/multi?api_key=$apiKey&query=$search');
+      List<SearchModel> searchedItems = [];
       response['results'].forEach(
         (item) => {
-          searchedMovies.add(
+          searchedItems.add(
             SearchModel.fromJson(item),
           ),
         },
       );
-      return right(searchedMovies);
+      return right(searchedItems);
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
 
 import '../../../../../core/widgets/custom_error_box.dart';
-import '../../../../../core/widgets/grid_view_list.dart';
+import 'movie_grid_view_list.dart';
 import '../../model_views/top_rated_cubit/top_rated_cubit.dart';
 
 class TopRatedViewBody extends StatelessWidget {
@@ -26,7 +25,7 @@ class TopRatedViewBody extends StatelessWidget {
       child: BlocBuilder<TopRatedCubit, TopRatedState>(
         builder: (context, state) {
           if (state is TopRatedMoviesSuccess) {
-            return GridViewList<MovieModel>(model: state.movies);
+            return MovieGridViewList(model: state.movies);
           } else if (state is TopRatedMoviesFailure) {
             return CustomErrorBox(errorMessage: state.error);
           } else {

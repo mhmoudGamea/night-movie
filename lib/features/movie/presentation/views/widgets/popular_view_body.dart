@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
 import '../../../../../core/widgets/custom_error_box.dart';
-import '../../../../../core/widgets/grid_view_list.dart';
+import 'movie_grid_view_list.dart';
 import '../../model_views/popular_cubit/popular_movies_cubit.dart';
 
 class PopularViewBody extends StatelessWidget {
@@ -24,7 +23,7 @@ class PopularViewBody extends StatelessWidget {
       child: BlocBuilder<PopularMoviesCubit, PopularMoviesState>(
         builder: (context, state) {
           if (state is PopularMoviesSuccess) {
-            return GridViewList<MovieModel>(model: state.movies);
+            return MovieGridViewList(model: state.movies);
           } else if (state is PopularMoviesFailure) {
             return CustomErrorBox(errorMessage: state.error);
           } else {

@@ -47,18 +47,19 @@ class SearchListViewItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(searchedMovie.title,
+                Text(searchedMovie.title ?? searchedMovie.name!,
                     style: Styles.font17,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2),
                 const SizedBox(height: 8),
                 CustomRateWidget(
-                  date: searchedMovie.releaseDate,
+                  date:
+                      searchedMovie.releaseDate ?? searchedMovie.firstAirDate!,
                   rate: searchedMovie.voteAverage,
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  searchedMovie.overview,
+                  searchedMovie.overview ?? '',
                   style: Styles.font14,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 3,

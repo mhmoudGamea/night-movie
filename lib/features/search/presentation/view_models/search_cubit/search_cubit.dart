@@ -10,9 +10,9 @@ class SearchCubit extends Cubit<SearchState> {
   final SearchRepo _searchRepo;
   SearchCubit(this._searchRepo) : super(SearchInitial());
 
-  Future<void> fetchSearchedMovies({required String movieName}) async {
+  Future<void> fetchSearchedMovies({required String searchItem}) async {
     emit(SearchLoading());
-    var response = await _searchRepo.getSearch(movieName: movieName);
+    var response = await _searchRepo.getSearch(search: searchItem);
 
     response.fold((failure) {
       emit(SearchFailure(error: failure.errorMessage));

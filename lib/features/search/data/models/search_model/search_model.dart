@@ -1,12 +1,17 @@
+// this model used for multi search which mean u can search about movie or tv series
+// so if the result was movie[title, releaseDate]
+// so if the result was tv[name, firstAirDate]
 import 'package:equatable/equatable.dart';
 
 class SearchModel extends Equatable {
   final String? backdropPath;
   final List<int>? generIds;
   final int id;
-  final String overview;
-  final String releaseDate;
-  final String title;
+  final String? overview;
+  final String? releaseDate;
+  final String? firstAirDate;
+  final String? title;
+  final String? name;
   final double voteAverage;
   final String? mediaType;
 
@@ -14,9 +19,11 @@ class SearchModel extends Equatable {
     this.backdropPath,
     this.generIds,
     required this.id,
-    required this.overview,
-    required this.releaseDate,
+    this.overview,
+    this.releaseDate,
+    this.firstAirDate,
     required this.title,
+    required this.name,
     required this.voteAverage,
     this.mediaType,
   });
@@ -28,7 +35,9 @@ class SearchModel extends Equatable {
       id: json['id'],
       overview: json['overview'],
       releaseDate: json['release_date'],
+      firstAirDate: json['first_air_date'],
       title: json['title'],
+      name: json['name'],
       voteAverage: json['vote_average'].toDouble(),
       mediaType: json['media_type'],
     );
@@ -41,7 +50,9 @@ class SearchModel extends Equatable {
         id,
         overview,
         releaseDate,
+        firstAirDate,
         title,
+        name,
         voteAverage,
         mediaType,
       ];

@@ -1,13 +1,14 @@
+// for popular and top rated movies
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
 
-import '../../features/movie/presentation/views/details_view.dart';
-import './grid_view_list_item.dart';
+import '../details_view.dart';
+import '../../../../../core/widgets/grid_view_list_item.dart';
 
-class GridViewList<T> extends StatelessWidget {
-  final List<T> model;
-  const GridViewList({Key? key, required this.model}) : super(key: key);
+class MovieGridViewList extends StatelessWidget {
+  final List<MovieModel> model;
+  const MovieGridViewList({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +23,8 @@ class GridViewList<T> extends StatelessWidget {
       ),
       itemBuilder: (context, index) => GestureDetector(
         onTap: () {
-          if (model is MovieModel) {
-            GoRouter.of(context).push(DetailsView.rn, extra: model[index]);
-          } else {
-            // print('TvModel');
-            // GoRouter.of(context).push(DetailsView.rn, extra: model[index].id);
-          }
+          // go to movie details page
+          GoRouter.of(context).push(DetailsView.rn, extra: model[index]);
         },
         child: GridViewListItem(
           model: model[index],

@@ -30,7 +30,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
         suffixIcon: IconButton(
           onPressed: () {
             BlocProvider.of<SearchCubit>(context)
-                .fetchSearchedMovies(movieName: _searchedValue.text);
+                .fetchSearchedMovies(searchItem: _searchedValue.text);
           },
           icon: Icon(
             FontAwesomeIcons.magnifyingGlass,
