@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:night_movie/features/tv/presentation/views/tv_details_view.dart';
 import 'package:night_movie/features/tv/presentation/views/tv_popular_view.dart';
 import 'package:night_movie/features/tv/presentation/views/tv_top_rated_view.dart';
+import 'package:night_movie/features/watch_list/presentation/views/watch_list.dart';
 
 import '../../features/movie/presentation/views/details_view.dart';
 import '../../features/movie/presentation/views/movie_view.dart';
@@ -43,6 +44,10 @@ class AppRoutes {
       GoRoute(
         path: SearchView.rn,
         builder: (context, state) => const SearchView(),
+      ),
+      GoRoute(
+        path: WatchList.rn,
+        builder: (context, state) => const WatchList(),
       ),
       GoRoute(
         path: TvPopularView.rn,

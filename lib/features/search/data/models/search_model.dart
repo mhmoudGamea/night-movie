@@ -1,6 +1,7 @@
 // this model used for multi search which mean u can search about movie or tv series
 // so if the result was movie[title, releaseDate]
 // so if the result was tv[name, firstAirDate]
+
 import 'package:equatable/equatable.dart';
 
 class SearchModel extends Equatable {
@@ -31,14 +32,15 @@ class SearchModel extends Equatable {
   factory SearchModel.fromJson(Map<String, dynamic> json) {
     return SearchModel(
       backdropPath: json['backdrop_path'],
-      generIds: List.from(json['genre_ids']),
+      generIds: List.from(json['genre_ids'] ?? []),
       id: json['id'],
       overview: json['overview'],
       releaseDate: json['release_date'],
       firstAirDate: json['first_air_date'],
       title: json['title'],
       name: json['name'],
-      voteAverage: json['vote_average'].toDouble(),
+      voteAverage:
+          json['vote_average'] == null ? 0 : json['vote_average'].toDouble(),
       mediaType: json['media_type'],
     );
   }

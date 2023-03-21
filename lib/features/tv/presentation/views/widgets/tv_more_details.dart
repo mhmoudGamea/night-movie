@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:night_movie/core/utils/helper.dart';
 import 'package:night_movie/core/widgets/show_web_view.dart';
 
@@ -26,32 +27,33 @@ class TvMoreDetails extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.83,
                 child: Text(
                   model.name,
-                  style: Styles.font17.copyWith(
-                    letterSpacing: 1.2,
-                  ),
+                  style: Styles.font17,
                 ),
               ),
               IconButton(
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(),
-                  onPressed: () async {
-                    // print(model.homePage);
-                    model.homePage.isEmpty
-                        ? await Helper.toast(
-                            msg:
-                                'Sorry the url of this series is not provided yet!',
-                          )
-                        : Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  ShowWebView(url: model.homePage),
-                            ),
-                          );
-                  },
-                  icon: Image.asset(
-                    'assets/images/eye.png',
-                    width: 22,
-                  ))
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+                onPressed: () async {
+                  // print(model.homePage);
+                  model.homePage.isEmpty
+                      ? Helper.showToast(
+                          context: context,
+                          color: Colors.amber,
+                          icon: FontAwesomeIcons.triangleExclamation,
+                          message:
+                              'Sorry the url of this series is not provided yet!')
+                      : Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                ShowWebView(url: model.homePage),
+                          ),
+                        );
+                },
+                icon: Image.asset(
+                  'assets/images/view.png',
+                  width: 22,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 10),

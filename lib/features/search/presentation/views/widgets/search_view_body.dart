@@ -66,9 +66,9 @@ class SearchViewBody extends StatelessWidget {
                       child: AwesomeSnackbarContent(
                         title: 'search!',
                         message:
-                            'please enter a movie name to get details about it.',
+                            'please enter a movie name or tv series to get details about it.',
                         contentType: ContentType.help,
-                        color: primaryColor.withOpacity(0.5),
+                        color: primaryColor.withOpacity(0.2),
                       ),
                     );
                   }

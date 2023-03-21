@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import '../../../../core/constants.dart';
 import '../../../../core/error/failure.dart';
 import '../../../../core/utils/api_services.dart';
-import '../models/search_model/search_model.dart';
+import '../models/search_model.dart';
 import 'search_repo.dart';
 
 class SearchRepoImpl implements SearchRepo {

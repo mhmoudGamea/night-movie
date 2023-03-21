@@ -1,3 +1,5 @@
+// used for now playing, popular and top rated
+// also i used it to save the movie in watchList of the user in cloud firestore
 import 'package:equatable/equatable.dart';
 
 class MovieModel extends Equatable {
@@ -29,6 +31,18 @@ class MovieModel extends Equatable {
       title: json['title'],
       voteAverage: json['vote_average'].toDouble(),
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'backdrop_path': backdropPath,
+      'genre_ids': generIds,
+      'id': id,
+      'overview': overview,
+      'release_date': releaseDate,
+      'title': title,
+      'vote_average': voteAverage,
+    };
   }
 
   @override

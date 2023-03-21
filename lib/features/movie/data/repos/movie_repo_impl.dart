@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -76,5 +77,19 @@ class MovieRepoImpl implements MovieRepo {
       }
       return left(ServerSideError(error.toString()));
     }
+  }
+
+  // cloud firestore handling functions
+  CollectionReference watchLists =
+      FirebaseFirestore.instance.collection(usersWatchListsCollection);
+
+  @override
+  Future<DocumentReference<Map<String, dynamic>>> addToWatchList(
+      String uId, Map<String, dynamic> json) async {
+    // await watchLists.doc(uId).set('data');
+    DocumentReference<Map<String, dynamic>> docId =
+        await watchLists.doc(uId).collection('watchList').add(json);
+    await watchLists.doc(uId).set({'dummy': 'dummy'});
+    return docId;
   }
 }

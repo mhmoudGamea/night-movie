@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:night_movie/features/tv/presentation/views/tv_details_view.dart';
 
 import '../../../../movie/presentation/views/details_view.dart';
-import '../../../data/models/search_model/search_model.dart';
+import '../../../data/models/search_model.dart';
 import 'search_list_view_item.dart';
 
 class SearchListView extends StatelessWidget {

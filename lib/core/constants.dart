@@ -13,3 +13,6 @@ ThemeData darkTheme = ThemeData(
   scaffoldBackgroundColor: primarySecondDark,
   appBarTheme: const AppBarTheme(backgroundColor: primarySecondDark),
 );
+
+// firebase collection constants
+const usersWatchListsCollection = 'usersWatchLists';

@@ -29,6 +29,19 @@ class RecommendationModel extends Equatable {
         title: json['title'],
         voteAverage: json['vote_average'].toDouble());
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'backdrop_path': backdropPath,
+      'genre_ids': generIds,
+      'id': id,
+      'overview': overview,
+      'release_date': releaseDate,
+      'title': title,
+      'vote_average': voteAverage,
+    };
+  }
+
   @override
   List<Object?> get props => [
         backdropPath,

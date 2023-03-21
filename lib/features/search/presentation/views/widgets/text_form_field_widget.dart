@@ -16,6 +16,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
   final TextEditingController _searchedValue = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final searchData = BlocProvider.of<SearchCubit>(context);
     return TextFormField(
       controller: _searchedValue,
       cursorColor: primaryColor.withOpacity(0.000001),
@@ -29,8 +30,8 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
         enabledBorder: inputBorder(0.5),
         suffixIcon: IconButton(
           onPressed: () {
-            BlocProvider.of<SearchCubit>(context)
-                .fetchSearchedMovies(searchItem: _searchedValue.text);
+            searchData.fetchSearchedMoviesOrSeries(
+                searchItem: _searchedValue.text);
           },
           icon: Icon(
             FontAwesomeIcons.magnifyingGlass,
@@ -39,6 +40,8 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           ),
         ),
       ),
+      onFieldSubmitted: (value) =>
+          searchData.fetchSearchedMoviesOrSeries(searchItem: value),
     );
   }
 }

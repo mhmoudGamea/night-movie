@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:night_movie/features/watch_list/presentation/views/watch_list.dart';
 
 import '../constants.dart';
 import 'drawer_option.dart';
@@ -37,15 +39,28 @@ class DrawerWidget extends StatelessWidget {
               bottomRight: Radius.circular(10),
             ),
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          padding: const EdgeInsets.only(bottom: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Image.asset(
+                'assets/images/vr.jpg',
+                fit: BoxFit.cover,
+                width: double.infinity,
+              ),
+              const SizedBox(height: 15),
               DrawerOption(
-                optionImage: 'assets/images/search.png',
+                optionIcon: Icons.search_rounded,
                 optionName: 'Search',
                 onPress: () {
                   navigateSearch(context);
+                },
+              ),
+              DrawerOption(
+                optionIcon: Icons.bookmark_rounded,
+                optionName: 'Watch List',
+                onPress: () {
+                  navigateWatchList(context);
                 },
               ),
             ],
@@ -58,5 +73,10 @@ class DrawerWidget extends StatelessWidget {
 
 void navigateSearch(BuildContext context) {
   GoRouter.of(context).push(SearchView.rn);
+  Scaffold.of(context).closeDrawer();
+}
+
+void navigateWatchList(BuildContext context) {
+  GoRouter.of(context).push(WatchList.rn);
   Scaffold.of(context).closeDrawer();
 }

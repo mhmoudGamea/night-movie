@@ -7,7 +7,7 @@ import '../../../../../core/utils/helper.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_rate_widget.dart';
 import '../../../../../core/widgets/shimmer_indicator.dart';
-import '../../../data/models/search_model/search_model.dart';
+import '../../../data/models/search_model.dart';
 
 class SearchListViewItem extends StatelessWidget {
   final SearchModel searchedMovie;
@@ -53,8 +53,7 @@ class SearchListViewItem extends StatelessWidget {
                     maxLines: 2),
                 const SizedBox(height: 8),
                 CustomRateWidget(
-                  date:
-                      searchedMovie.releaseDate ?? searchedMovie.firstAirDate!,
+                  date: searchedMovie.releaseDate ?? searchedMovie.firstAirDate,
                   rate: searchedMovie.voteAverage,
                 ),
                 const SizedBox(height: 8),

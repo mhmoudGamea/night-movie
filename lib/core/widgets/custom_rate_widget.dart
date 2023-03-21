@@ -5,7 +5,7 @@ import '../utils/helper.dart';
 import '../utils/styles.dart';
 
 class CustomRateWidget extends StatelessWidget {
-  final String date;
+  final String? date;
   final num rate;
   final int? numberOfSeasons;
   final dynamic eposideRunTime;
@@ -25,7 +25,10 @@ class CustomRateWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5), color: primaryColor),
-          child: Text(date.isEmpty ? 'N/ A' : Helper.getYearOfDate(date),
+          child: Text(
+              date == null
+                  ? 'N/A'
+                  : (date!.isEmpty ? 'N/ A' : Helper.getYearOfDate(date!)),
               style: Styles.font13),
         ),
         const SizedBox(width: 20),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:night_movie/features/movie/presentation/model_views/watch_list/watch_list_cubit.dart';
 
 import '../../data/repos/movie_repo_impl.dart';
 import '../model_views/recommendation/recommendation_cubit.dart';
@@ -12,9 +13,17 @@ class DetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => RecommendationCubit(MovieRepoImpl())
-        ..fetchRecommendation(movieId: model.id),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => RecommendationCubit(MovieRepoImpl())
+            ..fetchRecommendation(movieId: model.id),
+        ),
+        BlocProvider(
+          create: (context) => WatchListCubit(MovieRepoImpl())
+            ..getMoviesIds('yyTbyyKO9xREWQjg4aXIM2thJWp1'),
+        ),
+      ],
       child: Scaffold(
         body: SafeArea(
           child: DetailsViewBody(model: model),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:night_movie/core/utils/styles.dart';
 
 import '../constants.dart';
 
@@ -168,15 +169,39 @@ class Helper {
     return myGeners;
   }
 
-  static Future<void> toast(
-      {required String msg, Color? color, Color? txtColor}) {
-    return Fluttertoast.showToast(
-      msg: msg,
-      toastLength: Toast.LENGTH_SHORT,
+  static void showToast(
+      {required BuildContext context,
+      required Color color,
+      required IconData icon,
+      required String message}) {
+    FToast fToast = FToast();
+    fToast.init(context);
+    Widget toast = Container(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      decoration:
+          BoxDecoration(color: color, borderRadius: BorderRadius.circular(10)),
+      child: Row(
+        children: [
+          Icon(
+            icon,
+            size: 18,
+            color: Colors.white,
+          ),
+          const SizedBox(width: 10),
+          Flexible(
+            child: Text(
+              message,
+              style: Styles.font14.copyWith(color: Colors.white),
+            ),
+          ),
+        ],
+      ),
+    );
+    fToast.showToast(
+      child: toast,
+      toastDuration: const Duration(seconds: 3),
+      fadeDuration: const Duration(microseconds: 2000),
       gravity: ToastGravity.BOTTOM,
-      backgroundColor: color ?? Colors.red,
-      textColor: txtColor ?? Colors.white,
-      fontSize: 15,
     );
   }
 }
