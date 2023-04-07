@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:night_movie/features/movie/presentation/model_views/trailer_cubit/trailer_cubit.dart';
 import 'package:night_movie/features/movie/presentation/model_views/watch_list/watch_list_cubit.dart';
 
 import '../../data/repos/movie_repo_impl.dart';
@@ -18,6 +19,10 @@ class DetailsView extends StatelessWidget {
         BlocProvider(
           create: (context) => RecommendationCubit(MovieRepoImpl())
             ..fetchRecommendation(movieId: model.id),
+        ),
+        BlocProvider(
+          create: (context) =>
+              TrailerCubit(MovieRepoImpl())..fetchTrailer(movieId: model.id),
         ),
         BlocProvider(
           create: (context) => WatchListCubit(MovieRepoImpl())

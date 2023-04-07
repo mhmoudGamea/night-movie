@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:night_movie/core/utils/helper.dart';
 import 'package:night_movie/features/search/data/repos/search_repo_impl.dart';
 import 'package:night_movie/features/search/presentation/view_models/search_cubit/search_cubit.dart';
 
@@ -14,9 +13,8 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SearchCubit(SearchRepoImpl()),
-      child: Scaffold(
-        appBar: Helper.appBarWidget(name: 'Search', context: context),
-        body: const SafeArea(
+      child: const Scaffold(
+        body: SafeArea(
           child: SearchViewBody(),
         ),
       ),

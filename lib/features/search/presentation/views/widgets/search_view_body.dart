@@ -23,7 +23,7 @@ class SearchViewBody extends StatelessWidget {
             ]),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
         child: Column(
           children: [
             const TextFormFieldWidget(),
@@ -61,16 +61,7 @@ class SearchViewBody extends StatelessWidget {
                       child: CircularProgressIndicator(color: primaryColor),
                     );
                   } else {
-                    return Align(
-                      alignment: Alignment.bottomCenter,
-                      child: AwesomeSnackbarContent(
-                        title: 'search!',
-                        message:
-                            'please enter a movie name or tv series to get details about it.',
-                        contentType: ContentType.help,
-                        color: primaryColor.withOpacity(0.2),
-                      ),
-                    );
+                    return const SizedBox();
                   }
                 },
               ),

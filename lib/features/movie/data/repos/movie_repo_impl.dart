@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:night_movie/features/movie/data/models/trailer_model/trailer_model.dart';
 
 import '../../../../core/constants.dart';
 import '../../../../core/error/failure.dart';
@@ -53,6 +54,24 @@ class MovieRepoImpl implements MovieRepo {
       response['results']
           .forEach((item) => movieModel.add(MovieModel.fromJson(item)));
       return right(movieModel);
+    } catch (error) {
+      if (error is DioError) {
+        return left(ServerSideError.fromDioError(error));
+      }
+      return left(ServerSideError(error.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<TrailerModel>>> getTrailer(
+      {required int movieId}) async {
+    try {
+      final response = await ApiServices.get(
+          endpoint: '/movie/$movieId/videos?api_key=$apiKey');
+      List<TrailerModel> trailers = [];
+      response['results']
+          .forEach((item) => trailers.add(TrailerModel.fromJson(item)));
+      return right(trailers);
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:night_movie/features/search/presentation/view_models/search_cubit/search_cubit.dart';
 
 import '../../../../../core/constants.dart';
@@ -17,40 +17,60 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
   @override
   Widget build(BuildContext context) {
     final searchData = BlocProvider.of<SearchCubit>(context);
-    return TextFormField(
-      controller: _searchedValue,
-      cursorColor: primaryColor.withOpacity(0.000001),
-      style: const TextStyle(color: Colors.white),
-      decoration: InputDecoration(
-        hintText: 'What are you looking for?',
-        hintStyle: TextStyle(color: Colors.grey[700]!),
-        contentPadding: const EdgeInsets.only(top: 14, bottom: 14, left: 10),
-        border: inputBorder(0.5),
-        focusedBorder: inputBorder(0.8),
-        enabledBorder: inputBorder(0.5),
-        suffixIcon: IconButton(
+    return Row(
+      children: [
+        IconButton(
+          constraints: const BoxConstraints(),
+          padding: EdgeInsets.zero,
           onPressed: () {
-            searchData.fetchSearchedMoviesOrSeries(
-                searchItem: _searchedValue.text);
+            GoRouter.of(context).pop();
           },
-          icon: Icon(
-            FontAwesomeIcons.magnifyingGlass,
-            color: primaryColor.withOpacity(0.5),
-            size: 18,
+          icon: const Icon(
+            Icons.arrow_back_ios_rounded,
+            color: primaryColor,
+            size: 20,
           ),
         ),
-      ),
-      onFieldSubmitted: (value) =>
-          searchData.fetchSearchedMoviesOrSeries(searchItem: value),
+        const SizedBox(width: 10),
+        Expanded(
+          child: TextFormField(
+            controller: _searchedValue,
+            cursorColor: primaryColor.withOpacity(0.000001),
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              hintText: 'What are you looking for?',
+              hintStyle: TextStyle(color: Colors.grey[700]!),
+              contentPadding: const EdgeInsets.only(top: 5, bottom: 5, left: 5),
+              border: inputBorder(0.3),
+              focusedBorder: inputBorder(0.8),
+              enabledBorder: inputBorder(0.3),
+              suffixIconConstraints: const BoxConstraints(),
+            ),
+            onFieldSubmitted: (value) =>
+                searchData.fetchSearchedMoviesOrSeries(searchItem: value),
+          ),
+        ),
+        const SizedBox(width: 10),
+        IconButton(
+          constraints: const BoxConstraints(),
+          padding: EdgeInsets.zero,
+          onPressed: () {
+            _searchedValue.clear();
+          },
+          icon: const Icon(
+            Icons.close,
+            color: primaryColor,
+          ),
+        ),
+      ],
     );
   }
 }
 
 InputBorder inputBorder(double borderColorOpacity) {
-  return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(8),
+  return UnderlineInputBorder(
     borderSide: BorderSide(
-      width: 0,
+      width: 1.5,
       color: primaryColor.withOpacity(borderColorOpacity),
     ),
   );

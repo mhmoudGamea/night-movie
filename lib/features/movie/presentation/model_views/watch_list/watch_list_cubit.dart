@@ -20,7 +20,7 @@ class WatchListCubit extends Cubit<WatchListState> {
       FirebaseFirestore.instance.collection(usersWatchListsCollection);
 
   // contain all ids of watchListMovies
-  List<dynamic> _ids = [];
+  final List<dynamic> _ids = [];
 
   List<dynamic> get getIds {
     return _ids;
@@ -79,7 +79,7 @@ class WatchListCubit extends Cubit<WatchListState> {
   }
 
   // get all watchLists
-  List<MovieModel> _moviesModel = [];
+  final List<MovieModel> _moviesModel = [];
 
   // it just listen to each new user and save all them watchLists
   void getMoviesIds(String uId) async {

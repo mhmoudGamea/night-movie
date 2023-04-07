@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:night_movie/features/movie/presentation/views/widgets/trailers_list_view.dart';
 
 import '../../../../../core/utils/helper.dart';
 import 'movie_gener_generated.dart';
@@ -12,7 +13,6 @@ class DetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(model.id);
     return Container(
       height: double.infinity,
       decoration: const BoxDecoration(
@@ -34,6 +34,8 @@ class DetailsViewBody extends StatelessWidget {
                 imageUrl: model.backdropPath == null
                     ? null
                     : Helper.getImagePath(model.backdropPath)),
+            const SizedBox(height: 20),
+            const TrailersListView(),
             const SizedBox(height: 20),
             MovieMoreDetails(model: model),
             const SizedBox(height: 10),
