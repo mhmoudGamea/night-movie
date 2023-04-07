@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:night_movie/features/movie/data/models/trailer_model/trailer_model.dart';
+import 'package:night_movie/core/models/trailer_model.dart';
 
 import '../../../../core/constants.dart';
 import '../../../../core/error/failure.dart';

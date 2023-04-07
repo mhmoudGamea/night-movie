@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:night_movie/core/constants.dart';
+import 'package:night_movie/core/models/trailer_model.dart';
 import 'package:night_movie/core/utils/api_services.dart';
 import 'package:night_movie/features/tv/data/models/tv_detail_model.dart';
 import 'package:night_movie/features/tv/data/models/tv_episodes_model.dart';
@@ -91,6 +92,24 @@ class TvRepoImpl implements TvRepo {
         tvEpisodes.add(TvEpisodeModel.fromJson(item));
       });
       return right(tvEpisodes);
+    } catch (error) {
+      if (error is DioError) {
+        return left(ServerSideError.fromDioError(error));
+      }
+      return left(ServerSideError(error.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<TrailerModel>>> getTvTrailers(
+      {required int tvId}) async {
+    try {
+      final response =
+          await ApiServices.get(endpoint: '/tv/$tvId/videos?api_key=$apiKey');
+      List<TrailerModel> trailers = [];
+      response['results']
+          .forEach((item) => trailers.add(TrailerModel.fromJson(item)));
+      return right(trailers);
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));

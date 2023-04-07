@@ -35,15 +35,18 @@ class _TrailerBoxState extends State<TrailerBox> {
       width: 220,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
-        child: YoutubePlayer(
-          controller: _controller,
-          showVideoProgressIndicator: true,
-          progressIndicatorColor: primaryColor,
-          progressColors: ProgressBarColors(
-            playedColor: primaryColor,
-            handleColor: primaryColor.withOpacity(0.2),
+        child: AspectRatio(
+          aspectRatio: 11 / 7,
+          child: YoutubePlayer(
+            controller: _controller,
+            showVideoProgressIndicator: true,
+            progressIndicatorColor: primaryColor,
+            progressColors: ProgressBarColors(
+              playedColor: primaryColor,
+              handleColor: primaryColor.withOpacity(0.2),
+            ),
+            aspectRatio: 11 / 7,
           ),
-          width: 2,
         ),
       ),
     );

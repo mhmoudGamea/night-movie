@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:night_movie/features/tv/presentation/views/widgets/tv_trailers_list_view.dart';
 
 import '../../../../../core/constants.dart';
 import '../../../../../core/utils/helper.dart';
@@ -18,7 +19,7 @@ class TvDetailsViewBody extends StatelessWidget {
     return BlocBuilder<DetailsCubit, DetailsState>(
       builder: (context, state) {
         if (state is DetailsSuccess) {
-          // print(state.tvDetailModel.id);
+          print(state.tvDetailModel.id);
           return Container(
             height: double.infinity,
             decoration: const BoxDecoration(
@@ -41,6 +42,8 @@ class TvDetailsViewBody extends StatelessWidget {
                           ? null
                           : Helper.getImagePath(
                               state.tvDetailModel.backdropPath!)),
+                  const SizedBox(height: 18),
+                  const TvTrailersListView(),
                   const SizedBox(height: 18),
                   TvMoreDetails(model: state.tvDetailModel),
                   const SizedBox(height: 10),

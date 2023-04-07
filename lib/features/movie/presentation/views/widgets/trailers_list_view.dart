@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:night_movie/core/widgets/shimmer_indicator.dart';
 import 'package:night_movie/features/movie/presentation/model_views/trailer_cubit/trailer_cubit.dart';
 
-import 'trailer_box.dart';
+import '../../../../../core/widgets/trailer_box.dart';
 
 class TrailersListView extends StatelessWidget {
   const TrailersListView({Key? key}) : super(key: key);
@@ -30,12 +30,13 @@ class TrailersListView extends StatelessWidget {
                 itemCount: state.trailers.length);
           } else {
             return ListView.separated(
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) =>
-                    const ShimmerIndicator(width: 220, height: 140),
-                separatorBuilder: (context, index) => const SizedBox(width: 10),
-                itemCount: 5);
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) =>
+                  const ShimmerIndicator(width: 220, height: 140),
+              separatorBuilder: (context, index) => const SizedBox(width: 10),
+              itemCount: 5,
+            );
           }
         },
       ),
