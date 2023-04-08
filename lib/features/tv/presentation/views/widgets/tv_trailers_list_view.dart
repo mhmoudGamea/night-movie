@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:night_movie/core/constants.dart';
+import 'package:night_movie/core/utils/helper.dart';
+import 'package:night_movie/core/widgets/error_105.dart';
 import 'package:night_movie/core/widgets/shimmer_indicator.dart';
 import 'package:night_movie/core/widgets/trailer_box.dart';
 import 'package:night_movie/features/tv/presentation/model_views/tv_trailer_cubit/tv_trailer_cubit.dart';
@@ -16,13 +20,17 @@ class TvTrailersListView extends StatelessWidget {
             child: Text(state.error),
           );
         } else if (state is TvTrailerSuccess) {
+          if (!state.trailers[0].official) {
+            return const Error105();
+          }
           return SizedBox(
-            height: 140,
+            height: state.trailers.isEmpty ? 0 : 140,
             child: ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) =>
-                    TrailerBox(videoKey: state.trailers[index].key),
+                itemBuilder: (context, index) => TrailerBox(
+                      videoKey: state.trailers[index].key,
+                    ),
                 separatorBuilder: (context, index) => const SizedBox(width: 10),
                 itemCount: state.trailers.length),
           );

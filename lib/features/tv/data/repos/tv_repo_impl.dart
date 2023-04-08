@@ -111,6 +111,7 @@ class TvRepoImpl implements TvRepo {
           .forEach((item) => trailers.add(TrailerModel.fromJson(item)));
       return right(trailers);
     } catch (error) {
+      // print(error);
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));
       }

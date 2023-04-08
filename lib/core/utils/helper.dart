@@ -204,4 +204,42 @@ class Helper {
       gravity: ToastGravity.BOTTOM,
     );
   }
+
+  static void showCustomToast(
+      {required BuildContext context,
+      required Color bgColor,
+      required IconData icon,
+      required String msg}) {
+    FToast fToast = FToast();
+    fToast.init(context);
+    Widget toast = Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10), color: bgColor),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              color: Colors.white,
+              size: 18,
+            ),
+            const SizedBox(width: 10),
+            Text(
+              msg,
+              style: Styles.font15.copyWith(color: Colors.white),
+            ),
+          ],
+        ),
+      ),
+    );
+    fToast.showToast(
+      child: toast,
+      toastDuration: const Duration(seconds: 2),
+      fadeDuration: const Duration(milliseconds: 500),
+      gravity: ToastGravity.BOTTOM,
+    );
+  }
 }

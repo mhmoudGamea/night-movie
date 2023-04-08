@@ -12,7 +12,6 @@ class TrailersListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      height: 140,
       child: BlocBuilder<TrailerCubit, TrailerState>(
         builder: (context, state) {
           if (state is TrailerFailure) {
@@ -20,22 +19,28 @@ class TrailersListView extends StatelessWidget {
               child: Text(state.error),
             );
           } else if (state is TrailerSuccess) {
-            return ListView.separated(
+            return SizedBox(
+              height: state.trailers.isEmpty ? 0 : 140,
+              child: ListView.separated(
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => TrailerBox(
+                        videoKey: state.trailers[index].key,
+                      ),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 10),
+                  itemCount: state.trailers.length),
+            );
+          } else {
+            return SizedBox(
+              child: ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => TrailerBox(
-                      videoKey: state.trailers[index].key,
-                    ),
+                itemBuilder: (context, index) =>
+                    const ShimmerIndicator(width: 220, height: 140),
                 separatorBuilder: (context, index) => const SizedBox(width: 10),
-                itemCount: state.trailers.length);
-          } else {
-            return ListView.separated(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) =>
-                  const ShimmerIndicator(width: 220, height: 140),
-              separatorBuilder: (context, index) => const SizedBox(width: 10),
-              itemCount: 5,
+                itemCount: 5,
+              ),
             );
           }
         },

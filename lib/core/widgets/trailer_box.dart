@@ -29,23 +29,25 @@ class _TrailerBoxState extends State<TrailerBox> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    // print(widget.official);
     return SizedBox(
-      height: 140,
-      width: 220,
+      width: 140,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
-        child: AspectRatio(
-          aspectRatio: 11 / 7,
-          child: YoutubePlayer(
-            controller: _controller,
-            showVideoProgressIndicator: true,
-            progressIndicatorColor: primaryColor,
-            progressColors: ProgressBarColors(
-              playedColor: primaryColor,
-              handleColor: primaryColor.withOpacity(0.2),
-            ),
-            aspectRatio: 11 / 7,
+        child: YoutubePlayer(
+          controller: _controller,
+          showVideoProgressIndicator: true,
+          progressIndicatorColor: primaryColor,
+          progressColors: ProgressBarColors(
+            playedColor: primaryColor,
+            handleColor: primaryColor.withOpacity(0.2),
           ),
         ),
       ),
