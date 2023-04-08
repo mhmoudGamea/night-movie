@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:night_movie/core/widgets/shimmer_indicator.dart';
 import 'package:night_movie/features/movie/presentation/model_views/trailer_cubit/trailer_cubit.dart';
 
+import '../../../../../core/widgets/error_105.dart';
 import '../../../../../core/widgets/trailer_box.dart';
 
 class TrailersListView extends StatelessWidget {
@@ -19,6 +20,9 @@ class TrailersListView extends StatelessWidget {
               child: Text(state.error),
             );
           } else if (state is TrailerSuccess) {
+            if (!state.trailers[0].official) {
+              return const Error105();
+            }
             return SizedBox(
               height: state.trailers.isEmpty ? 0 : 140,
               child: ListView.separated(

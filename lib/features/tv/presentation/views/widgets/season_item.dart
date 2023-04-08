@@ -59,18 +59,18 @@ class ShowEpisodesButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: primaryColor,
+        color: primaryFirstDark,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             'Season ${widget.seasonNumber}',
-            style: Styles.font15,
+            style: Styles.font14,
           ),
           FaIcon(
             _isExpanded ? FontAwesomeIcons.angleUp : FontAwesomeIcons.angleDown,
-            size: 15,
+            size: 14,
             color: Colors.white,
           ),
         ],

@@ -26,7 +26,7 @@ class Error105 extends StatelessWidget {
           Flexible(
             child: Text(
               'This video contains content from Core Republic, who has blocked it on copyright grounds',
-              style: Styles.font15,
+              style: Styles.font14,
             ),
           ),
         ],
