@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:night_movie/core/constants.dart';
-import 'package:night_movie/core/utils/helper.dart';
 import 'package:night_movie/core/widgets/error_105.dart';
 import 'package:night_movie/core/widgets/shimmer_indicator.dart';
 import 'package:night_movie/core/widgets/trailer_box.dart';
@@ -20,7 +17,7 @@ class TvTrailersListView extends StatelessWidget {
             child: Text(state.error),
           );
         } else if (state is TvTrailerSuccess) {
-          if (!state.trailers[0].official) {
+          if (!state.official) {
             return const Error105();
           }
           return SizedBox(

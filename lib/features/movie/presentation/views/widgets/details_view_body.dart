@@ -13,6 +13,7 @@ class DetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(model.id);
     return Container(
       height: double.infinity,
       decoration: const BoxDecoration(

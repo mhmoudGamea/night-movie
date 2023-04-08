@@ -18,7 +18,21 @@ class TvTrailerCubit extends Cubit<TvTrailerState> {
       debugPrint(failure.errorMessage);
       emit(TvTrailerFailure(error: failure.errorMessage));
     }, (trailers) {
-      emit(TvTrailerSuccess(trailers: trailers));
+      var official = isOfficial(trailers);
+      emit(TvTrailerSuccess(trailers: trailers, official: official));
     });
+  }
+
+  bool isOfficial(List<TrailerModel> trailers) {
+    var official = false;
+    if (trailers.isNotEmpty) {
+      for (var i = 0; i < trailers.length; i++) {
+        if (trailers[i].official) {
+          official = true;
+          break;
+        }
+      }
+    }
+    return official;
   }
 }

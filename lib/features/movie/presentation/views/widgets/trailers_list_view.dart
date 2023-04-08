@@ -20,7 +20,7 @@ class TrailersListView extends StatelessWidget {
               child: Text(state.error),
             );
           } else if (state is TrailerSuccess) {
-            if (!state.trailers[0].official) {
+            if (!state.official) {
               return const Error105();
             }
             return SizedBox(
@@ -37,6 +37,7 @@ class TrailersListView extends StatelessWidget {
             );
           } else {
             return SizedBox(
+              height: 140,
               child: ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,

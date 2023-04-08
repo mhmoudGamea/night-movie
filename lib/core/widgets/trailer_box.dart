@@ -36,9 +36,8 @@ class _TrailerBoxState extends State<TrailerBox> {
 
   @override
   Widget build(BuildContext context) {
-    // print(widget.official);
     return SizedBox(
-      width: 140,
+      width: 220,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: YoutubePlayer(
@@ -49,6 +48,10 @@ class _TrailerBoxState extends State<TrailerBox> {
             playedColor: primaryColor,
             handleColor: primaryColor.withOpacity(0.2),
           ),
+          bottomActions: [
+            CurrentPosition(),
+            ProgressBar(isExpanded: true),
+          ],
         ),
       ),
     );
