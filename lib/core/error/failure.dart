@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class Failure {
   final String errorMessage;
@@ -45,6 +46,31 @@ class ServerSideError extends Failure {
     } else {
       return ServerSideError(
           'Opps there was an error, Please try again later.');
+    }
+  }
+}
+
+class FirebaseSideError extends Failure {
+  const FirebaseSideError(super.errorMessage);
+
+  factory FirebaseSideError.fromLogin(FirebaseAuthException e) {
+    if (e.code == 'user-not-found') {
+      return const FirebaseSideError('No user found for that email.');
+    } else if (e.code == 'wrong-password') {
+      return const FirebaseSideError('Wrong password provided for that user.');
+    } else {
+      return const FirebaseSideError('Please try again later.');
+    }
+  }
+
+  factory FirebaseSideError.fromSignIn(FirebaseAuthException e) {
+    if (e.code == 'weak-password') {
+      return const FirebaseSideError('The password provided is too weak.');
+    } else if (e.code == 'email-already-in-use') {
+      return const FirebaseSideError(
+          'The account already exists for that email.');
+    } else {
+      return const FirebaseSideError('Please try again later.');
     }
   }
 }

@@ -8,7 +8,7 @@ import '../../../../core/widgets/drawer_widget.dart';
 import 'movie_view.dart';
 
 class TabsMainView extends StatefulWidget {
-  static const rn = '/';
+  static const rn = '/tabsMainView';
   const TabsMainView({Key? key}) : super(key: key);
 
   @override

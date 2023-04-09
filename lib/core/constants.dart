@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 const String baseUrl = 'https://api.themoviedb.org/3';
 const String apiKey = 'f4860e7c267158c95182ade46c1411b1';
 const String imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
+const String logo = 'assets/images/movieDB.svg';
 
 const Color primaryColor = Color(0xff03dbea);
 const Color primaryFirstDark = Color.fromARGB(255, 31, 31, 33);

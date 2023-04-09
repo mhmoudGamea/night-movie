@@ -1,9 +1,11 @@
 import 'package:go_router/go_router.dart';
+import 'package:night_movie/features/auth/presentation/views/login_view.dart';
 import 'package:night_movie/features/tv/presentation/views/tv_details_view.dart';
 import 'package:night_movie/features/tv/presentation/views/tv_popular_view.dart';
 import 'package:night_movie/features/tv/presentation/views/tv_top_rated_view.dart';
 import 'package:night_movie/features/watch_list/presentation/views/watch_list.dart';
 
+import '../../features/auth/presentation/views/auth_view.dart';
 import '../../features/movie/presentation/views/details_view.dart';
 import '../../features/movie/presentation/views/movie_view.dart';
 import '../../features/movie/presentation/views/popular_view.dart';
@@ -18,6 +20,14 @@ class AppRoutes {
 
   static final _router = GoRouter(
     routes: [
+      GoRoute(
+        path: AuthView.rn,
+        builder: (context, state) => const AuthView(),
+      ),
+      GoRoute(
+        path: LoginView.rn,
+        builder: (context, state) => const LoginView(),
+      ),
       GoRoute(
         path: TabsMainView.rn,
         builder: (context, state) => const TabsMainView(),

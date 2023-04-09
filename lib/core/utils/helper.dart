@@ -209,7 +209,8 @@ class Helper {
       {required BuildContext context,
       required Color bgColor,
       required IconData icon,
-      required String msg}) {
+      required String msg,
+      required Color iconColor}) {
     FToast fToast = FToast();
     fToast.init(context);
     Widget toast = Align(
@@ -223,13 +224,15 @@ class Helper {
           children: [
             Icon(
               icon,
-              color: Colors.white,
+              color: iconColor,
               size: 18,
             ),
             const SizedBox(width: 10),
-            Text(
-              msg,
-              style: Styles.font15.copyWith(color: Colors.white),
+            Flexible(
+              child: Text(
+                msg,
+                style: Styles.font15.copyWith(color: Colors.white),
+              ),
             ),
           ],
         ),

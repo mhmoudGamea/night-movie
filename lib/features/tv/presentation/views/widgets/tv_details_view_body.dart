@@ -19,7 +19,7 @@ class TvDetailsViewBody extends StatelessWidget {
     return BlocBuilder<DetailsCubit, DetailsState>(
       builder: (context, state) {
         if (state is DetailsSuccess) {
-          print(state.tvDetailModel.id);
+          // print(state.tvDetailModel.id);
           return Container(
             height: double.infinity,
             decoration: const BoxDecoration(
