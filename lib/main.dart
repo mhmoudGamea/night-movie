@@ -12,6 +12,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   ApiServices.initializeDio();
+  AppRoutes.getAuthState();
   runApp(const NightMovie());
 }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:night_movie/core/widgets/not_avilable_poster_image.dart';
 
 import '../../../../../core/utils/helper.dart';
 import '../../../../../core/widgets/awesome_message.dart';
@@ -28,9 +29,11 @@ class PopularListView extends StatelessWidget {
                   GoRouter.of(context)
                       .push(DetailsView.rn, extra: state.movies[index]);
                 },
-                child: MoviePosterImage(
-                    imageUrl:
-                        Helper.getImagePath(state.movies[index].backdropPath)),
+                child: state.movies[index].backdropPath == null
+                    ? const NotAvilablePosterImage()
+                    : MoviePosterImage(
+                        imageUrl: Helper.getImagePath(
+                            state.movies[index].backdropPath!)),
               ),
             ),
           );

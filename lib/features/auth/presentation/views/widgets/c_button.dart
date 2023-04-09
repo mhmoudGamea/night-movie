@@ -4,6 +4,8 @@ import 'package:night_movie/core/constants.dart';
 import 'package:night_movie/core/utils/styles.dart';
 import 'package:night_movie/features/auth/presentation/model_views/auth_cubit/auth_cubit.dart';
 
+import 'c_loading.dart';
+
 class CButton extends StatelessWidget {
   final String text;
   final VoidCallback pressed;
@@ -29,14 +31,7 @@ class CButton extends StatelessWidget {
                 child: Align(
                     alignment: Alignment.center,
                     child: (state is LoginLoading || state is SignLoading)
-                        ? const SizedBox(
-                            height: 25,
-                            width: 25,
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                              strokeWidth: 2,
-                            ),
-                          )
+                        ? const CLoading()
                         : Text(text, style: Styles.font16)),
               );
             },

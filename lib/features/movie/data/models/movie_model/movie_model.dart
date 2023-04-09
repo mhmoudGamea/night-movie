@@ -3,7 +3,7 @@
 import 'package:equatable/equatable.dart';
 
 class MovieModel extends Equatable {
-  final String backdropPath;
+  final String? backdropPath;
   final List<int> generIds;
   final int id;
   final String overview;
@@ -12,7 +12,7 @@ class MovieModel extends Equatable {
   final double voteAverage;
 
   const MovieModel({
-    required this.backdropPath,
+    this.backdropPath,
     required this.generIds,
     required this.id,
     required this.overview,

@@ -1,5 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
-import 'package:night_movie/features/auth/presentation/views/login_view.dart';
 import 'package:night_movie/features/tv/presentation/views/tv_details_view.dart';
 import 'package:night_movie/features/tv/presentation/views/tv_popular_view.dart';
 import 'package:night_movie/features/tv/presentation/views/tv_top_rated_view.dart';
@@ -14,19 +14,30 @@ import '../../features/movie/presentation/views/top_rated_view.dart';
 import '../../features/search/presentation/views/search_view.dart';
 
 class AppRoutes {
+  static late String path;
+
+  static void getAuthState() {
+    FirebaseAuth.instance.authStateChanges().listen((event) {
+      if (event == null) {
+        print('Not Authenticated');
+        path = '/';
+      } else {
+        print('Authenticated');
+        path = TabsMainView.rn;
+      }
+    });
+  }
+
   static GoRouter get getRouter {
     return _router;
   }
 
   static final _router = GoRouter(
+    initialLocation: path,
     routes: [
       GoRoute(
         path: AuthView.rn,
         builder: (context, state) => const AuthView(),
-      ),
-      GoRoute(
-        path: LoginView.rn,
-        builder: (context, state) => const LoginView(),
       ),
       GoRoute(
         path: TabsMainView.rn,

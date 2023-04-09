@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/helper.dart';
 import '../../../../../core/widgets/awesome_message.dart';
 import '../../../../../core/widgets/movie_poster_image.dart';
+import '../../../../../core/widgets/not_avilable_poster_image.dart';
 import '../../model_views/top_rated_cubit/top_rated_cubit.dart';
 import '../details_view.dart';
 
@@ -28,9 +29,11 @@ class TopRatedListView extends StatelessWidget {
                   GoRouter.of(context)
                       .push(DetailsView.rn, extra: state.movies[index]);
                 },
-                child: MoviePosterImage(
-                    imageUrl:
-                        Helper.getImagePath(state.movies[index].backdropPath)),
+                child: state.movies[index].backdropPath == null
+                    ? const NotAvilablePosterImage()
+                    : MoviePosterImage(
+                        imageUrl: Helper.getImagePath(
+                            state.movies[index].backdropPath!)),
               ),
             ),
           );

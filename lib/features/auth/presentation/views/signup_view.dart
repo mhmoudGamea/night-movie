@@ -69,7 +69,7 @@ class _SignupViewState extends State<SignupView> {
               text: 'Sign Up',
               pressed: () {
                 if (_form.currentState!.validate()) {
-                  signData.signIn(
+                  signData.signUp(
                     context: context,
                     name: name.text,
                     email: email.text,
