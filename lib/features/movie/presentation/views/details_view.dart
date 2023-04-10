@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:night_movie/features/movie/presentation/model_views/trailer_cubit/trailer_cubit.dart';
-import 'package:night_movie/features/movie/presentation/model_views/watch_list/watch_list_cubit.dart';
+import 'package:night_movie/features/watch_list/data/repos/watch_repo_impl.dart';
 
+import '../../../watch_list/presentation/view_models/watch_list/watch_list_cubit.dart';
 import '../../data/repos/movie_repo_impl.dart';
 import '../model_views/recommendation/recommendation_cubit.dart';
+import '../model_views/trailer_cubit/trailer_cubit.dart';
 import './widgets/details_view_body.dart';
 
 class DetailsView extends StatelessWidget {
@@ -25,8 +26,7 @@ class DetailsView extends StatelessWidget {
               TrailerCubit(MovieRepoImpl())..fetchTrailer(movieId: model.id),
         ),
         BlocProvider(
-          create: (context) => WatchListCubit(MovieRepoImpl())
-            ..getMoviesIds('yyTbyyKO9xREWQjg4aXIM2thJWp1'),
+          create: (context) => WatchListCubit(WatchRepoImpl()),
         ),
       ],
       child: Scaffold(

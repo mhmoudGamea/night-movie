@@ -15,7 +15,6 @@ class AuthRepoImpl implements AuthRepo {
         email: email,
         password: pass,
       );
-      print(credential.user!.uid);
       return right(credential);
     } on FirebaseAuthException catch (e) {
       return left(FirebaseSideError.fromLogin(e));

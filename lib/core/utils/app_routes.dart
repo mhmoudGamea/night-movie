@@ -19,10 +19,10 @@ class AppRoutes {
   static void getAuthState() {
     FirebaseAuth.instance.authStateChanges().listen((event) {
       if (event == null) {
-        print('Not Authenticated');
+        // print('Not Authenticated');
         path = '/';
       } else {
-        print('Authenticated');
+        // print('Authenticated');
         path = TabsMainView.rn;
       }
     });

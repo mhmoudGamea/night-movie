@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:night_movie/features/auth/presentation/views/auth_view.dart';
 import 'package:night_movie/features/watch_list/presentation/views/watch_list.dart';
 
 import '../constants.dart';
@@ -12,10 +14,9 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: primaryFirstDark,
+      backgroundColor: primarySecondDark,
       width: 260,
       elevation: 10,
-      shadowColor: primarySecondDark,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(10),
@@ -25,14 +26,6 @@ class DrawerWidget extends StatelessWidget {
       child: SafeArea(
         child: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color.fromARGB(255, 31, 31, 33),
-                Color.fromARGB(255, 15, 16, 17),
-              ],
-            ),
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(10),
               bottomRight: Radius.circular(10),
@@ -43,7 +36,7 @@ class DrawerWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.asset(
-                'assets/images/vr.jpg',
+                'assets/images/remove.png',
                 fit: BoxFit.cover,
                 width: double.infinity,
               ),
@@ -57,9 +50,17 @@ class DrawerWidget extends StatelessWidget {
               ),
               DrawerOption(
                 optionIcon: Icons.bookmark_rounded,
-                optionName: 'Watch List',
+                optionName: 'Watch list',
                 onPress: () {
                   navigateWatchList(context);
+                },
+              ),
+              DrawerOption(
+                optionIcon: Icons.output_rounded,
+                optionName: 'Sign out',
+                onPress: () async {
+                  GoRouter.of(context).push(AuthView.rn);
+                  await signOut();
                 },
               ),
             ],
@@ -78,4 +79,8 @@ void navigateSearch(BuildContext context) {
 void navigateWatchList(BuildContext context) {
   GoRouter.of(context).push(WatchList.rn);
   Scaffold.of(context).closeDrawer();
+}
+
+Future<void> signOut() async {
+  await FirebaseAuth.instance.signOut();
 }

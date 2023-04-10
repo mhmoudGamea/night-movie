@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:night_movie/core/constants.dart';
-import 'package:night_movie/features/movie/presentation/model_views/watch_list/watch_list_cubit.dart';
+import 'package:night_movie/features/movie/presentation/views/widgets/title_widget.dart';
 
-import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_rate_widget.dart';
 import './expanded_widget.dart';
 
@@ -13,45 +10,13 @@ class MovieMoreDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = BlocProvider.of<WatchListCubit>(context);
+    // final data = BlocProvider.of<WatchListCubit>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.83,
-                child: Text(
-                  model.title,
-                  style: Styles.font17,
-                ),
-              ),
-              BlocBuilder<WatchListCubit, WatchListState>(
-                builder: (context, state) {
-                  return IconButton(
-                    padding: EdgeInsets.zero,
-                    constraints: const BoxConstraints(),
-                    onPressed: () async {
-                      BlocProvider.of<WatchListCubit>(context)
-                          .watchList(model, context);
-                    },
-                    icon: Icon(
-                      data.getIds.contains(model.id)
-                          ? Icons.bookmark_rounded
-                          : (state is WatchListSuccess
-                              ? Icons.bookmark_rounded
-                              : Icons.bookmark_outline_rounded),
-                      size: 20,
-                      color: primaryColor,
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
+          TitleWidget(model: model),
           const SizedBox(height: 10),
           CustomRateWidget(date: model.releaseDate, rate: model.voteAverage),
           const SizedBox(height: 15),

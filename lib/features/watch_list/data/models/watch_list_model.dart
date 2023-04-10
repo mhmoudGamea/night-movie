@@ -1,7 +1,7 @@
-// used for now playing, popular and top rated
+// also i used it to save the movie in watchList of the user in cloud firestore
 import 'package:equatable/equatable.dart';
 
-class MovieModel extends Equatable {
+class WatchListModel extends Equatable {
   final String? backdropPath;
   final List<int> generIds;
   final int id;
@@ -9,8 +9,9 @@ class MovieModel extends Equatable {
   final String releaseDate;
   final String title;
   final double voteAverage;
+  final String uid;
 
-  const MovieModel({
+  const WatchListModel({
     this.backdropPath,
     required this.generIds,
     required this.id,
@@ -18,19 +19,20 @@ class MovieModel extends Equatable {
     required this.releaseDate,
     required this.title,
     required this.voteAverage,
+    this.uid = '',
   });
 
-  factory MovieModel.fromJson(Map<String, dynamic> json) {
-    return MovieModel(
-      backdropPath: json['backdrop_path'],
-      generIds: List.from(json['genre_ids'].map((e) => e)),
-      id: json['id'],
-      overview: json['overview'],
-      releaseDate: json['release_date'],
-      title: json['title'],
-      voteAverage: json['vote_average'].toDouble(),
-    );
-  }
+  // factory WatchListModel.fromJson(Map<String, dynamic> json) {
+  //   return WatchListModel(
+  //     backdropPath: json['backdrop_path'],
+  //     generIds: List.from(json['genre_ids'].map((e) => e)),
+  //     id: json['id'],
+  //     overview: json['overview'],
+  //     releaseDate: json['release_date'],
+  //     title: json['title'],
+  //     voteAverage: json['vote_average'].toDouble(),
+  //   );
+  // }
 
   Map<String, dynamic> toJson() {
     return {
@@ -41,6 +43,7 @@ class MovieModel extends Equatable {
       'release_date': releaseDate,
       'title': title,
       'vote_average': voteAverage,
+      'uid': uid,
     };
   }
 

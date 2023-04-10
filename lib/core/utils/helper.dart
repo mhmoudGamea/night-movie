@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:night_movie/core/utils/styles.dart';
@@ -243,6 +244,28 @@ class Helper {
       toastDuration: const Duration(seconds: 2),
       fadeDuration: const Duration(milliseconds: 500),
       gravity: ToastGravity.BOTTOM,
+    );
+  }
+
+  // just to display error toast
+  static void failMessage(BuildContext context, String msg) {
+    Helper.showCustomToast(
+      context: context,
+      bgColor: primaryFirstDark,
+      icon: FontAwesomeIcons.triangleExclamation,
+      iconColor: Colors.amber,
+      msg: msg,
+    );
+  }
+
+// just to display success toast
+  static void successMessage(BuildContext context, String msg) {
+    Helper.showCustomToast(
+      context: context,
+      bgColor: primaryFirstDark,
+      icon: FontAwesomeIcons.circleCheck,
+      iconColor: Colors.green,
+      msg: msg,
     );
   }
 }
