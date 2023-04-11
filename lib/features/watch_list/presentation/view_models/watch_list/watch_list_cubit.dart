@@ -12,19 +12,6 @@ class WatchListCubit extends Cubit<WatchListState> {
   final WatchRepo _watchRepo;
   WatchListCubit(this._watchRepo) : super(WatchListInitial());
 
-  // cloud firestore handling functions
-
-  // this function will take the movie id and if it find an return all
-  // identical movies to this one from watchList in firestore
-  // https://firebase.flutter.dev/docs/firestore/usage#querying
-  // https://firebase.flutter.dev/docs/firestore/usage#removing-data
-
-  // this function depend on ids List if it find the movieId in this list
-  // it will remove it otherwise it 'll add it
-  // add & remove is locally and on fireStore with nice toast
-
-  // it just listen to each new user and save all them watchLists
-
   Future<void> watchList(
       {required BuildContext context,
       required MovieModel movieModel,
@@ -42,7 +29,27 @@ class WatchListCubit extends Cubit<WatchListState> {
         Helper.failMessage(context, failure.errorMessage);
       }, (success) {
         Helper.successMessage(context, 'Success remove from watchlist');
+        // await getMyWatchList();
       });
     }
   }
+
+  // Future<void> getMyWatchList() async {
+  //   emit(WatchListGetLoading());
+  //   try {
+  //     List<MovieModel> watch = [];
+  //     watchLists.snapshots().listen((event) {
+  //       watch.clear();
+  //       for (var element in event.docs) {
+  //         if (element['uid'] == uid) {
+  //           watch.add(
+  //               MovieModel.fromJson(element.data() as Map<String, dynamic>));
+  //         }
+  //       }
+  //       emit(WatchListGetSuccess(watch: watch));
+  //     });
+  //   } catch (error) {
+  //     emit(const WatchListGetFailure(error: 'Failed to get watchList'));
+  //   }
+  // }
 }

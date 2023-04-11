@@ -4,7 +4,6 @@ import 'package:night_movie/core/models/trailer_model.dart';
 
 import '../../../../core/error/failure.dart';
 import '../models/movie_model/movie_model.dart';
-import '../models/recommendation_model/recommendation_model.dart';
 
 abstract class MovieRepo {
   // apis handling functions
@@ -13,7 +12,7 @@ abstract class MovieRepo {
   Future<Either<Failure, List<MovieModel>>> getTopRatedMovies();
   Future<Either<Failure, List<TrailerModel>>> getTrailer(
       {required int movieId});
-  Future<Either<Failure, List<RecommendationModel>>> getRecommendationMovies(
+  Future<Either<Failure, List<MovieModel>>> getRecommendationMovies(
       {required int movieId});
   // cloud firestore handling functions
   Future<DocumentReference<Map<String, dynamic>>> addToWatchList(

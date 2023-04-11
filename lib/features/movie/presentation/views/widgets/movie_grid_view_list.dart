@@ -1,8 +1,8 @@
 // for popular and top rated movies
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
 
+import '../../../data/models/movie_model/movie_model.dart';
 import '../details_view.dart';
 import '../../../../../core/widgets/grid_view_list_item.dart';
 

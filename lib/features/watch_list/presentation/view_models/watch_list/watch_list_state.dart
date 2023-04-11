@@ -9,12 +9,14 @@ abstract class WatchListState extends Equatable {
 
 class WatchListInitial extends WatchListState {}
 
-// if user select movie to be added to it's watch list
-class WatchListSuccess extends WatchListState {}
+class WatchListGetLoading extends WatchListState {}
 
-class WatchListFailure extends WatchListState {}
+class WatchListGetSuccess extends WatchListState {
+  final List<MovieModel> watch;
+  const WatchListGetSuccess({required this.watch});
+}
 
-// movies ids
-class GetWatchListIdsSuccess extends WatchListState {}
-
-class RemoveWatchListIdsSuccess extends WatchListState {}
+class WatchListGetFailure extends WatchListState {
+  final String error;
+  const WatchListGetFailure({required this.error});
+}

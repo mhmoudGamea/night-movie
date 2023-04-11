@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
 import 'package:night_movie/features/movie/presentation/views/widgets/trailers_list_view.dart';
 
 import '../../../../../core/utils/helper.dart';
@@ -8,7 +9,8 @@ import './movie_poster_image_details.dart';
 import './recommendation_section.dart';
 
 class DetailsViewBody extends StatelessWidget {
-  final dynamic model; // this model could be MovieModel or RecommendationModel
+  final MovieModel
+      model; // this model could be MovieModel or RecommendationModel
   const DetailsViewBody({Key? key, required this.model}) : super(key: key);
 
   @override
@@ -33,7 +35,7 @@ class DetailsViewBody extends StatelessWidget {
             MoviePosterImageDetails(
                 imageUrl: model.backdropPath == null
                     ? null
-                    : Helper.getImagePath(model.backdropPath)),
+                    : Helper.getImagePath(model.backdropPath!)),
             const SizedBox(height: 20),
             const TrailersListView(),
             const SizedBox(height: 20),

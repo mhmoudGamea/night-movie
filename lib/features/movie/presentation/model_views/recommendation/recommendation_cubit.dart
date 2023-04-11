@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
 
-import '../../../data/models/recommendation_model/recommendation_model.dart';
 import '../../../data/repos/movie_repo.dart';
 part './recommendation_state.dart';
 

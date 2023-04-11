@@ -1,4 +1,5 @@
 // used for now playing, popular and top rated
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 class MovieModel extends Equatable {
@@ -21,6 +22,18 @@ class MovieModel extends Equatable {
   });
 
   factory MovieModel.fromJson(Map<String, dynamic> json) {
+    return MovieModel(
+      backdropPath: json['backdrop_path'],
+      generIds: List.from(json['genre_ids'].map((e) => e)),
+      id: json['id'],
+      overview: json['overview'],
+      releaseDate: json['release_date'],
+      title: json['title'],
+      voteAverage: json['vote_average'].toDouble(),
+    );
+  }
+
+  factory MovieModel.fromFirestore(QueryDocumentSnapshot<Object?> json) {
     return MovieModel(
       backdropPath: json['backdrop_path'],
       generIds: List.from(json['genre_ids'].map((e) => e)),

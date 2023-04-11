@@ -12,7 +12,7 @@ class RecommendationInitial extends RecommendationState {}
 class RecommendationLoading extends RecommendationState {}
 
 class RecommendationSuccess extends RecommendationState {
-  final List<RecommendationModel> recommendations;
+  final List<MovieModel> recommendations;
   const RecommendationSuccess({required this.recommendations});
 }
 

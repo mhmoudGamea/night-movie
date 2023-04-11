@@ -7,7 +7,6 @@ import '../../../../core/constants.dart';
 import '../../../../core/error/failure.dart';
 import '../../../../core/utils/api_services.dart';
 import '../models/movie_model/movie_model.dart';
-import '../models/recommendation_model/recommendation_model.dart';
 import './movie_repo.dart';
 
 class MovieRepoImpl implements MovieRepo {
@@ -81,14 +80,14 @@ class MovieRepoImpl implements MovieRepo {
   }
 
   @override
-  Future<Either<Failure, List<RecommendationModel>>> getRecommendationMovies(
+  Future<Either<Failure, List<MovieModel>>> getRecommendationMovies(
       {required int movieId}) async {
     try {
       final response = await ApiServices.get(
           endpoint: '/movie/$movieId/recommendations?api_key=$apiKey');
-      List<RecommendationModel> recommendationMovies = [];
-      response['results'].forEach((item) =>
-          recommendationMovies.add(RecommendationModel.fromJson(item)));
+      List<MovieModel> recommendationMovies = [];
+      response['results'].forEach(
+          (item) => recommendationMovies.add(MovieModel.fromJson(item)));
       return right(recommendationMovies);
     } catch (error) {
       if (error is DioError) {

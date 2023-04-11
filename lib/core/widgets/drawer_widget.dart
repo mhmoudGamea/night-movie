@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:night_movie/features/auth/presentation/views/auth_view.dart';
-import 'package:night_movie/features/watch_list/presentation/views/watch_list.dart';
+import 'package:night_movie/features/watch_list/presentation/views/watch_list_view.dart';
 
 import '../constants.dart';
 import 'drawer_option.dart';
@@ -77,7 +77,7 @@ void navigateSearch(BuildContext context) {
 }
 
 void navigateWatchList(BuildContext context) {
-  GoRouter.of(context).push(WatchList.rn);
+  GoRouter.of(context).push(WatchListView.rn);
   Scaffold.of(context).closeDrawer();
 }
 

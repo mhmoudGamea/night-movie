@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
 import 'package:night_movie/features/watch_list/data/repos/watch_repo_impl.dart';
 
 import '../../../watch_list/presentation/view_models/watch_list/watch_list_cubit.dart';
@@ -10,7 +11,7 @@ import './widgets/details_view_body.dart';
 
 class DetailsView extends StatelessWidget {
   static const rn = '/detailsView';
-  final dynamic model; // this model could be MovieModel or RecommendationModel
+  final MovieModel model;
   const DetailsView({Key? key, required this.model}) : super(key: key);
 
   @override

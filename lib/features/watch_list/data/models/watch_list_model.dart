@@ -22,17 +22,18 @@ class WatchListModel extends Equatable {
     this.uid = '',
   });
 
-  // factory WatchListModel.fromJson(Map<String, dynamic> json) {
-  //   return WatchListModel(
-  //     backdropPath: json['backdrop_path'],
-  //     generIds: List.from(json['genre_ids'].map((e) => e)),
-  //     id: json['id'],
-  //     overview: json['overview'],
-  //     releaseDate: json['release_date'],
-  //     title: json['title'],
-  //     voteAverage: json['vote_average'].toDouble(),
-  //   );
-  // }
+  factory WatchListModel.fromJson(Map<String, dynamic> json) {
+    return WatchListModel(
+      backdropPath: json['backdrop_path'],
+      generIds: List.from(json['genre_ids'].map((e) => e)),
+      id: json['id'],
+      overview: json['overview'],
+      releaseDate: json['release_date'],
+      title: json['title'],
+      voteAverage: json['vote_average'].toDouble(),
+      uid: json['uid'],
+    );
+  }
 
   Map<String, dynamic> toJson() {
     return {
