@@ -15,7 +15,11 @@
   <li>using solid priciples like single responcibility and dependency inversion</li>Equatable
   <li>using dartz package to return either [error or wanted data] and Equatable package</li>
   <li>in search i use multi search api to search about tv series or movies</li>
-  <li>the user can add /remove it's movie to /from watchList</li>
+  <li>the user can add or remove it's movie to or from watchList</li>
+  <li>each user has it's own watchList from movies</li>
+  <li>each user can see tv series in web</li>
+  <li>i add movie trailers to movie section and tv trailers for tv section</li>
+  <li>the app has a signin & signup screen aslo and user can sign out and remaining signed in</li>
 </ul>
 
 <hr/>
