@@ -9,7 +9,7 @@
   <img src='demo%20screenshots/Screenshot_20230316-151241.png' width='230'/>
 </div>
 
-<h4>more screenshots in demo screenshots folder <a link="https://github.com/mhmoudGamea/night-movie/tree/main/demo%20screenshots">go</a></h4>
+<h4>more screenshots in demo screenshots folder <a href="https://github.com/mhmoudGamea/night-movie/tree/main/demo%20screenshots" style="color:green">go</a></h4>
 
 <hr/>
 <ul>
