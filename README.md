@@ -9,6 +9,8 @@
   <img src='demo%20screenshots/Screenshot_20230316-151241.png' width='230'/>
 </div>
 
+<h4>more screenshots in demo screenshots folder</h4>
+
 <hr/>
 <ul>
   <li>i use mvvm pattern in this app and bloc as state managment</li>
@@ -26,4 +28,4 @@
 
 <hr/>
 <h4>what i will add</h4>
-<li>login, sign up views and how to rate movie or tv</li>
+<li>how to rate movie or tv</li>
