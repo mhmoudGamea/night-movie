@@ -14,7 +14,7 @@ class SearchView extends StatelessWidget {
     return BlocProvider(
       create: (context) => SearchCubit(SearchRepoImpl()),
       child: const Scaffold(
-        body: SearchViewBody(),
+        body: SafeArea(child: SearchViewBody()),
       ),
     );
   }

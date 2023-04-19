@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:night_movie/core/constants.dart';
 import 'package:night_movie/core/utils/styles.dart';
 
 class CTextFormField extends StatelessWidget {
@@ -19,25 +20,28 @@ class CTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      cursorColor: Colors.white,
+      cursorColor: Colors.grey.withOpacity(0.5),
       style: Styles.font14,
       keyboardType: type,
       obscureText: visible,
       controller: controller,
       decoration: InputDecoration(
+        filled: true,
+        fillColor: primaryColor.withOpacity(0.1),
         label: Text(label),
         labelStyle: Styles.font14.copyWith(color: Colors.white),
-        border: border(),
-        enabledBorder: border(),
-        focusedBorder: border(),
+        border: border(0.3),
+        enabledBorder: border(0.3),
+        focusedBorder: border(0.8),
       ),
       validator: validate,
     );
   }
 
-  UnderlineInputBorder border() {
-    return const UnderlineInputBorder(
-      borderSide: BorderSide(width: 2, color: Colors.white),
+  UnderlineInputBorder border(double borderColorOpacity) {
+    return UnderlineInputBorder(
+      borderSide: BorderSide(
+          width: 3.3, color: primaryColor.withOpacity(borderColorOpacity)),
     );
   }
 }

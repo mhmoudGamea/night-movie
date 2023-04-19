@@ -24,7 +24,7 @@ class _KeepSiginState extends State<KeepSigin> {
               shape: BeveledRectangleBorder(
                 borderRadius: BorderRadius.circular(1),
               ),
-              side: const BorderSide(width: 1, color: primaryColor),
+              side: BorderSide(width: 1, color: primaryColor.withOpacity(0.3)),
               activeColor: primaryColor,
               checkColor: Colors.white,
               value: keepSign,

@@ -38,8 +38,10 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
             cursorColor: primaryColor.withOpacity(0.000001),
             style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
+              filled: true,
+              fillColor: primaryColor.withOpacity(0.1),
               hintText: 'What are you looking for?',
-              hintStyle: TextStyle(color: Colors.grey[700]!),
+              hintStyle: const TextStyle(color: Colors.white),
               contentPadding: const EdgeInsets.only(top: 5, bottom: 5, left: 5),
               border: inputBorder(0.3),
               focusedBorder: inputBorder(0.8),
@@ -70,7 +72,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
 InputBorder inputBorder(double borderColorOpacity) {
   return UnderlineInputBorder(
     borderSide: BorderSide(
-      width: 1.5,
+      width: 3,
       color: primaryColor.withOpacity(borderColorOpacity),
     ),
   );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:night_movie/core/widgets/gener_box.dart';
 
 import '../../../../../core/utils/helper.dart';
-import '../../../../../core/utils/styles.dart';
 
 class TvGenerGenerated extends StatelessWidget {
   final List<Map<String, dynamic>> geners;
@@ -10,28 +10,22 @@ class TvGenerGenerated extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final myGeners = Helper.getTvGeners(geners);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: SizedBox(
-        height: 30,
+        height: 35,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Geners: ',
-                style: Styles.font13.copyWith(color: const Color(0xff616161))),
             Expanded(
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 physics: const BouncingScrollPhysics(),
                 itemCount: myGeners.length,
-                separatorBuilder: (context, index) => const Text(
-                  ', ',
-                  style: TextStyle(color: Color(0xff616161)),
-                ),
-                itemBuilder: (context, index) => Text(
-                  myGeners[index],
-                  style: Styles.font13.copyWith(color: const Color(0xff616161)),
-                ),
+                separatorBuilder: (context, index) => const SizedBox(width: 5),
+                itemBuilder: (context, index) =>
+                    GenerBox(text: myGeners[index]),
               ),
             )
           ],

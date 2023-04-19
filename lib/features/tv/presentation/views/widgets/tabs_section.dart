@@ -28,12 +28,14 @@ class TabsSection extends StatelessWidget {
                   },
                   child: Container(
                     alignment: Alignment.center,
-                    padding: const EdgeInsets.only(top: 5, right: 5),
+                    padding:
+                        const EdgeInsets.only(top: 5, right: 5, bottom: 10),
                     margin: const EdgeInsets.only(right: 20),
                     decoration: BoxDecoration(
                       border: data.getSeasonsTabValue
                           ? const Border(
-                              top: BorderSide(color: primaryColor, width: 2.5),
+                              bottom:
+                                  BorderSide(color: primaryColor, width: 2.5),
                             )
                           : null,
                     ),
@@ -51,12 +53,13 @@ class TabsSection extends StatelessWidget {
                   },
                   child: Container(
                     alignment: Alignment.center,
-                    padding: const EdgeInsets.only(top: 5, left: 5),
+                    padding: const EdgeInsets.only(top: 5, left: 5, bottom: 10),
                     margin: const EdgeInsets.only(left: 20),
                     decoration: BoxDecoration(
                       border: data.getMoreLikeThisTabValue
                           ? const Border(
-                              top: BorderSide(color: primaryColor, width: 2.5),
+                              bottom:
+                                  BorderSide(color: primaryColor, width: 2.5),
                             )
                           : null,
                     ),

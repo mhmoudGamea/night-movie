@@ -45,7 +45,7 @@ class _AuthViewBodyState extends State<AuthViewBody> {
                 TabBar(
                   dragStartBehavior: DragStartBehavior.down,
                   // dividerColor: Colors.red,
-                  indicatorColor: primaryColor,
+                  indicatorColor: primaryColor.withOpacity(0.3),
                   indicatorWeight: 2.5,
                   indicatorPadding:
                       const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
