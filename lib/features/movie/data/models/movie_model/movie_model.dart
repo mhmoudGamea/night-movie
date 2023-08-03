@@ -45,6 +45,13 @@ class MovieModel extends Equatable {
     );
   }
 
+  static List<MovieModel> getListFromResponse(Map<String, dynamic> response) {
+    List<MovieModel> movieList = [];
+    response['results']
+        .forEach((data) => movieList.add(MovieModel.fromJson(data)));
+    return movieList;
+  }
+
   Map<String, dynamic> toJson() {
     return {
       'backdrop_path': backdropPath,

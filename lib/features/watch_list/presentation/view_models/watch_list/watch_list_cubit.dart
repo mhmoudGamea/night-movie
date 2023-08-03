@@ -33,23 +33,4 @@ class WatchListCubit extends Cubit<WatchListState> {
       });
     }
   }
-
-  // Future<void> getMyWatchList() async {
-  //   emit(WatchListGetLoading());
-  //   try {
-  //     List<MovieModel> watch = [];
-  //     watchLists.snapshots().listen((event) {
-  //       watch.clear();
-  //       for (var element in event.docs) {
-  //         if (element['uid'] == uid) {
-  //           watch.add(
-  //               MovieModel.fromJson(element.data() as Map<String, dynamic>));
-  //         }
-  //       }
-  //       emit(WatchListGetSuccess(watch: watch));
-  //     });
-  //   } catch (error) {
-  //     emit(const WatchListGetFailure(error: 'Failed to get watchList'));
-  //   }
-  // }
 }

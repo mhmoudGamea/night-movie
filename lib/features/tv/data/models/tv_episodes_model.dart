@@ -32,6 +32,14 @@ class TvEpisodeModel extends Equatable {
     );
   }
 
+  static List<TvEpisodeModel> getListFromResponse(
+      Map<String, dynamic> response) {
+    List<TvEpisodeModel> tvEposideList = [];
+    response['results']
+        .forEach((data) => tvEposideList.add(TvEpisodeModel.fromJson(data)));
+    return tvEposideList;
+  }
+
   @override
   List<Object?> get props => [
         airDate,

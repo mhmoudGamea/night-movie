@@ -16,11 +16,7 @@ class TvRepoImpl implements TvRepo {
     try {
       final response =
           await ApiServices.get(endpoint: '/tv/on_the_air?api_key=$apiKey');
-      List<TvModel> tvModel = [];
-      response['results'].forEach((item) {
-        tvModel.add(TvModel.fromJson(item));
-      });
-      return right(tvModel);
+      return right(TvModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));
@@ -34,11 +30,7 @@ class TvRepoImpl implements TvRepo {
     try {
       final response =
           await ApiServices.get(endpoint: '/tv/popular?api_key=$apiKey');
-      List<TvModel> tvModel = [];
-      response['results'].forEach((item) {
-        tvModel.add(TvModel.fromJson(item));
-      });
-      return right(tvModel);
+      return right(TvModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));
@@ -52,11 +44,7 @@ class TvRepoImpl implements TvRepo {
     try {
       final response =
           await ApiServices.get(endpoint: '/tv/top_rated?api_key=$apiKey');
-      List<TvModel> tvModel = [];
-      response['results'].forEach((item) {
-        tvModel.add(TvModel.fromJson(item));
-      });
-      return right(tvModel);
+      return right(TvModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));
@@ -87,11 +75,7 @@ class TvRepoImpl implements TvRepo {
     try {
       final response = await ApiServices.get(
           endpoint: '/tv/$tvId/season/$seasonNumber?api_key=$apiKey');
-      List<TvEpisodeModel> tvEpisodes = [];
-      response['episodes'].forEach((item) {
-        tvEpisodes.add(TvEpisodeModel.fromJson(item));
-      });
-      return right(tvEpisodes);
+      return right(TvEpisodeModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));
@@ -106,10 +90,7 @@ class TvRepoImpl implements TvRepo {
     try {
       final response =
           await ApiServices.get(endpoint: '/tv/$tvId/videos?api_key=$apiKey');
-      List<TrailerModel> trailers = [];
-      response['results']
-          .forEach((item) => trailers.add(TrailerModel.fromJson(item)));
-      return right(trailers);
+      return right(TrailerModel.getListFromResponse(response));
     } catch (error) {
       // print(error);
       if (error is DioError) {
@@ -125,11 +106,7 @@ class TvRepoImpl implements TvRepo {
     try {
       final response = await ApiServices.get(
           endpoint: '/tv/$tvId/recommendations?api_key=$apiKey');
-      List<TvModel> tvModels = [];
-      response['results'].forEach((item) {
-        tvModels.add(TvModel.fromJson(item));
-      });
-      return right(tvModels);
+      return right(TvModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));

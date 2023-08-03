@@ -47,23 +47,4 @@ class WatchRepoImpl implements WatchRepo {
       return left(const FirebaseSideError('Failed remove from watchlist'));
     }
   }
-
-  // @override
-  // Future<Either<Failure, List<MovieModel>>> getWatchList() async {
-  //   try {
-  //     List<MovieModel> watch = [];
-  //     watchLists.snapshots().listen((event) {
-  //       watch.clear();
-  //       for (var element in event.docs) {
-  //         if (element['uid'] == uid) {
-  //           watch.add(
-  //               MovieModel.fromJson(element.data() as Map<String, dynamic>));
-  //         }
-  //       }
-  //     });
-  //     return right(watch);
-  //   } catch (error) {
-  //     return left(const FirebaseSideError('Failed to get watchList'));
-  //   }
-  // }
 }

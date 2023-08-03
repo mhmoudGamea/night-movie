@@ -30,6 +30,14 @@ class TrailerModel extends Equatable {
       publishedAt: json['published_at'],
     );
   }
+
+  static List<TrailerModel> getListFromResponse(Map<String, dynamic> response) {
+    List<TrailerModel> trailerList = [];
+    response['results']
+        .forEach((data) => trailerList.add(TrailerModel.fromJson(data)));
+    return trailerList;
+  }
+
   @override
   List<Object?> get props => [
         name,

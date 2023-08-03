@@ -15,15 +15,8 @@ class SearchRepoImpl implements SearchRepo {
     try {
       final response = await ApiServices.get(
           endpoint: '/search/multi?api_key=$apiKey&query=$search');
-      List<SearchModel> searchedItems = [];
-      response['results'].forEach(
-        (item) => {
-          searchedItems.add(
-            SearchModel.fromJson(item),
-          ),
-        },
-      );
-      return right(searchedItems);
+
+      return right(SearchModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));

@@ -30,6 +30,12 @@ class TvModel extends Equatable {
         voteAverage: json['vote_average']);
   }
 
+  static List<TvModel> getListFromResponse(Map<String, dynamic> response) {
+    List<TvModel> tvList = [];
+    response['results'].forEach((data) => tvList.add(TvModel.fromJson(data)));
+    return tvList;
+  }
+
   @override
   List<Object?> get props => [
         backdropPath,

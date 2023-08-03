@@ -15,10 +15,7 @@ class MovieRepoImpl implements MovieRepo {
     try {
       var response =
           await ApiServices.get(endpoint: '/movie/now_playing?api_key=$apiKey');
-      List<MovieModel> movieModel = [];
-      response['results']
-          .forEach((item) => movieModel.add(MovieModel.fromJson(item)));
-      return right(movieModel);
+      return right(MovieModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));
@@ -32,10 +29,7 @@ class MovieRepoImpl implements MovieRepo {
     try {
       var response =
           await ApiServices.get(endpoint: '/movie/popular?api_key=$apiKey');
-      List<MovieModel> movieModel = [];
-      response['results']
-          .forEach((item) => movieModel.add(MovieModel.fromJson(item)));
-      return right(movieModel);
+      return right(MovieModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));
@@ -49,10 +43,7 @@ class MovieRepoImpl implements MovieRepo {
     try {
       var response =
           await ApiServices.get(endpoint: '/movie/top_rated?api_key=$apiKey');
-      List<MovieModel> movieModel = [];
-      response['results']
-          .forEach((item) => movieModel.add(MovieModel.fromJson(item)));
-      return right(movieModel);
+      return right(MovieModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));
@@ -67,10 +58,7 @@ class MovieRepoImpl implements MovieRepo {
     try {
       final response = await ApiServices.get(
           endpoint: '/movie/$movieId/videos?api_key=$apiKey');
-      List<TrailerModel> trailers = [];
-      response['results']
-          .forEach((item) => trailers.add(TrailerModel.fromJson(item)));
-      return right(trailers);
+      return right(TrailerModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));
@@ -85,10 +73,7 @@ class MovieRepoImpl implements MovieRepo {
     try {
       final response = await ApiServices.get(
           endpoint: '/movie/$movieId/recommendations?api_key=$apiKey');
-      List<MovieModel> recommendationMovies = [];
-      response['results'].forEach(
-          (item) => recommendationMovies.add(MovieModel.fromJson(item)));
-      return right(recommendationMovies);
+      return right(MovieModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));

@@ -45,6 +45,18 @@ class SearchModel extends Equatable {
     );
   }
 
+  static List<SearchModel> getListFromResponse(Map<String, dynamic> response) {
+    List<SearchModel> searchedItems = [];
+    response['results'].forEach(
+      (item) => {
+        searchedItems.add(
+          SearchModel.fromJson(item),
+        ),
+      },
+    );
+    return searchedItems;
+  }
+
   @override
   List<Object?> get props => [
         backdropPath,
