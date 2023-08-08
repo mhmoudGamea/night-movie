@@ -10,7 +10,7 @@ import '../../model_views/popular_cubit/popular_movies_cubit.dart';
 import '../details_view.dart';
 
 class PopularListView extends StatelessWidget {
-  const PopularListView({Key? key}) : super(key: key);
+  const PopularListView({super.key});
 
   @override
   Widget build(BuildContext context) {

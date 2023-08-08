@@ -9,23 +9,23 @@
   <img src='demo%20screenshots/Screenshot_20230316-151241.png' width='230'/>
 </div>
 
-<h4>more screenshots in demo screenshots folder <a href="https://github.com/mhmoudGamea/night-movie/tree/main/demo%20screenshots"">  go</a></h4>
+<h4>more screenshots in demo screenshots folder <a href="https://github.com/mhmoudGamea/night-movie/tree/main/demo%20screenshots">  go</a></h4>
 
 <hr/>
 <ul>
   <li>i use mvvm pattern in this app and bloc as state managment</li>
   <li>using shimmer package to make image appear smoothly and nicely also i use cached network images</li>
   <li>using repos, abstract classes encapsulation and many of oop principles</li>
-  <li>using solid priciples like single responcibility and dependency inversion</li>Equatable
+  <li>using solid priciples like single responcibility and dependency inversion</li>
   <li>using dartz package to return either [error or wanted data] and Equatable package</li>
   <li>in search i use multi search api to search about tv series or movies</li>
   <li>the user can add or remove it's movie to or from watchList</li>
   <li>each user has it's own watchList from movies</li>
   <li>each user can see tv series in web</li>
   <li>i add movie trailers to movie section and tv trailers for tv section</li>
-  <li>the app has a signin & signup screen aslo and user can sign out and remaining signed in</li>
 </ul>
 
 <hr/>
 <h4>what i will add</h4>
 <li>how to rate movie or tv</li>
+<li>pagination so i can load 20 by 20 item when i go to the end of the list</li>
