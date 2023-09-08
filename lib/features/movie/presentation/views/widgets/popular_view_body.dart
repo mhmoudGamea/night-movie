@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/widgets/custom_error_box.dart';
-import 'movie_grid_view_list.dart';
-import '../../model_views/popular_cubit/popular_movies_cubit.dart';
+import 'package:night_movie/features/movie/presentation/views/widgets/popular_view_bloc_consumer.dart';
 
 class PopularViewBody extends StatelessWidget {
   const PopularViewBody({Key? key}) : super(key: key);
@@ -20,17 +17,7 @@ class PopularViewBody extends StatelessWidget {
               Color.fromARGB(255, 15, 16, 17),
             ]),
       ),
-      child: BlocBuilder<PopularMoviesCubit, PopularMoviesState>(
-        builder: (context, state) {
-          if (state is PopularMoviesSuccess) {
-            return MovieGridViewList(model: state.movies);
-          } else if (state is PopularMoviesFailure) {
-            return CustomErrorBox(errorMessage: state.error);
-          } else {
-            return const SizedBox();
-          }
-        },
-      ),
+      child: const PopularViewBlocConsumer(),
     );
   }
 }
