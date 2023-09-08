@@ -20,3 +20,7 @@ class PopularMoviesFailure extends PopularMoviesState {
   final String error;
   const PopularMoviesFailure({required this.error});
 }
+
+// pagination states
+
+class PopularMoviesPaginationLoading extends PopularMoviesState {}

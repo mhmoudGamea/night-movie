@@ -25,10 +25,11 @@ class MovieRepoImpl implements MovieRepo {
   }
 
   @override
-  Future<Either<Failure, List<MovieModel>>> getPopularMovies() async {
+  Future<Either<Failure, List<MovieModel>>> getPopularMovies(
+      {int page = 1}) async {
     try {
-      var response =
-          await ApiServices.get(endpoint: '/movie/popular?api_key=$apiKey');
+      var response = await ApiServices.get(
+          endpoint: '/movie/popular?api_key=$apiKey&page=$page');
       return right(MovieModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {

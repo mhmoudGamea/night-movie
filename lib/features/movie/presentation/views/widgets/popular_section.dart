@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../popular_view.dart';
 import '../../../../../core/widgets/section_header.dart';
-import './popular_list_view.dart';
+import 'popular_list_view_bloc_consumer.dart';
 
 class PopularSection extends StatelessWidget {
   const PopularSection({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class PopularSection extends StatelessWidget {
               GoRouter.of(context).push(PopularView.rn);
             }),
         const SizedBox(height: 5),
-        const PopularListView(),
+        const PopularListViewBlocConsumer(),
       ],
     );
   }
