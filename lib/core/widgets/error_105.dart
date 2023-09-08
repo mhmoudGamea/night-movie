@@ -15,8 +15,8 @@ class Error105 extends StatelessWidget {
         color: primaryFirstDark,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Row(
-        children: const [
+      child: const Row(
+        children: [
           Icon(
             FontAwesomeIcons.triangleExclamation,
             size: 20,

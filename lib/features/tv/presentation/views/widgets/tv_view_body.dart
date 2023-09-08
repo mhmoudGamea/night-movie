@@ -9,10 +9,10 @@ class TvViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
+    return const SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
       child: Column(
-        children: const [
+        children: [
           SizedBox(height: 5),
           TvOnTheAirSection(),
           SizedBox(height: 30),

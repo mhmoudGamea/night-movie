@@ -17,8 +17,8 @@ class CNoWatchListYet extends StatelessWidget {
           color: primaryFirstDark,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Row(
-          children: const [
+        child: const Row(
+          children: [
             Icon(
               FontAwesomeIcons.faceSadTear,
               size: 20,
