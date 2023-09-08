@@ -60,11 +60,23 @@ class GridViewListItem extends StatelessWidget {
                       percent: model.voteAverage / 10.0,
                       animation: true,
                       animationDuration: 1200,
-                      center: Text(
-                        Helper.changeNumberToFixedString(
-                          rate: model.voteAverage,
+                      center: FittedBox(
+                        child: Row(
+                          children: [
+                            Text(
+                              Helper.changeNumberToFixedString(
+                                rate: model.voteAverage,
+                              ),
+                              style:
+                                  Styles.font14.copyWith(color: primaryColor),
+                            ),
+                            Text(
+                              '%',
+                              style: Styles.font13
+                                  .copyWith(color: primaryColor, fontSize: 9),
+                            )
+                          ],
                         ),
-                        style: Styles.font14.copyWith(color: primaryColor),
                       ),
                       progressColor: Helper.percentIndicatorColor(
                           model.voteAverage)['progressColor'],
