@@ -8,9 +8,8 @@ import '../models/movie_model/movie_model.dart';
 abstract class MovieRepo {
   // apis handling functions
   Future<Either<Failure, List<MovieModel>>> getNowPlaying();
-  //implementin pagination on popular section
   Future<Either<Failure, List<MovieModel>>> getPopularMovies({int page = 1});
-  Future<Either<Failure, List<MovieModel>>> getTopRatedMovies();
+  Future<Either<Failure, List<MovieModel>>> getTopRatedMovies({int page = 1});
   Future<Either<Failure, List<TrailerModel>>> getTrailer(
       {required int movieId});
   Future<Either<Failure, List<MovieModel>>> getRecommendationMovies(

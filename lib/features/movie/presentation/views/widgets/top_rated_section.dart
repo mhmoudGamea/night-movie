@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../top_rated_view.dart';
 import '../../../../../core/widgets/section_header.dart';
-import './top_rated_list_view.dart';
+import 'top_rated_list_view_bloc_consumer.dart';
 
 class TopRatedSection extends StatelessWidget {
   const TopRatedSection({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class TopRatedSection extends StatelessWidget {
           },
         ),
         const SizedBox(height: 5),
-        const TopRatedListView(),
+        const TopRatedListViewBlocConsumer(),
       ],
     );
   }

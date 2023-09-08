@@ -10,10 +10,12 @@ class TopRatedCubit extends Cubit<TopRatedState> {
   final MovieRepo _movieRepo;
   TopRatedCubit(this._movieRepo) : super(TopRatedInitial());
 
-  Future<void> fetchTopRatedMovies() async {
-    emit(TopRatedMoviesLoading());
+  Future<void> fetchTopRatedMovies({int page = 1}) async {
+    page == 1
+        ? emit(TopRatedMoviesLoading())
+        : emit(TopRatedMoviesPaginationLoading());
 
-    var response = await _movieRepo.getTopRatedMovies();
+    var response = await _movieRepo.getTopRatedMovies(page: page);
     response.fold((failure) {
       emit(TopRatedMoviesFailure(error: failure.errorMessage));
     }, (movies) {
