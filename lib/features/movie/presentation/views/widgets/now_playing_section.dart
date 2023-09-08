@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:night_movie/core/widgets/now_playing_shimmer.dart';
 
 import '../../../../../core/constants.dart';
 import '../../../../../core/widgets/awesome_message.dart';
@@ -72,7 +73,7 @@ class NowPlayingSection extends StatelessWidget {
             message: state.error,
           );
         } else {
-          return const SizedBox(height: 200);
+          return const NowPlayingShimmer();
         }
       },
     );

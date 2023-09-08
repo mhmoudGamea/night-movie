@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:night_movie/core/widgets/shimmer_grid_view_2_.dart';
 
 import '../../../../../core/widgets/custom_error_box.dart';
 import '../../../data/models/movie_model/movie_model.dart';
@@ -32,7 +33,8 @@ class _PopularViewBlocConsumerState extends State<PopularViewBlocConsumer> {
         } else if (state is PopularMoviesFailure) {
           return CustomErrorBox(errorMessage: state.error);
         } else {
-          return const SizedBox();
+          //PopularMoviesLoading
+          return const ShimmerGridView2();
         }
       },
     );
