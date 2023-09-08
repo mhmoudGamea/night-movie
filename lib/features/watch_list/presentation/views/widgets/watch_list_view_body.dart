@@ -5,7 +5,7 @@ import 'package:night_movie/features/movie/data/models/movie_model/movie_model.d
 
 import '../../../../../core/constants.dart';
 import '../../../../../core/widgets/custom_error_box.dart';
-import '../../../../movie/presentation/views/widgets/movie_grid_view_list.dart';
+import '../../../../movie/presentation/views/widgets/top_rated_movie_grid_view_list.dart';
 import 'c_no_watch_list_yet.dart';
 
 class WatchListViewBody extends StatefulWidget {
@@ -22,16 +22,6 @@ class _WatchListViewBodyState extends State<WatchListViewBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // decoration: const BoxDecoration(
-      //   gradient: LinearGradient(
-      //     begin: Alignment.topCenter,
-      //     end: Alignment.bottomCenter,
-      //     colors: [
-      //       Color.fromARGB(255, 31, 31, 33),
-      //       Color.fromARGB(255, 15, 16, 17),
-      //     ],
-      //   ),
-      // ),
       color: primarySecondDark,
       child: StreamBuilder<QuerySnapshot>(
         stream: _watchLists,
@@ -51,7 +41,8 @@ class _WatchListViewBodyState extends State<WatchListViewBody> {
             if (watch.isEmpty) {
               return const CNoWatchListYet();
             }
-            return MovieGridViewList(model: watch);
+            //TODO: change TopRatedMovieGridViewList to another name
+            return TopRatedMovieGridViewList(movies: watch);
           } else {
             return Container();
           }

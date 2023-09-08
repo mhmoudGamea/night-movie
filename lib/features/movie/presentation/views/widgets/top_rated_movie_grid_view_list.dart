@@ -2,21 +2,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:night_movie/features/movie/presentation/model_views/popular_cubit/popular_movies_cubit.dart';
+import 'package:night_movie/features/movie/presentation/model_views/top_rated_cubit/top_rated_cubit.dart';
 
 import '../../../data/models/movie_model/movie_model.dart';
 import '../details_view.dart';
 import '../../../../../core/widgets/grid_view_list_item.dart';
 
-class MovieGridViewList extends StatefulWidget {
-  final List<MovieModel> model;
-  const MovieGridViewList({Key? key, required this.model}) : super(key: key);
+class TopRatedMovieGridViewList extends StatefulWidget {
+  final List<MovieModel> movies;
+  const TopRatedMovieGridViewList({Key? key, required this.movies})
+      : super(key: key);
 
   @override
-  State<MovieGridViewList> createState() => _MovieGridViewListState();
+  State<TopRatedMovieGridViewList> createState() =>
+      _TopRatedMovieGridViewListState();
 }
 
-class _MovieGridViewListState extends State<MovieGridViewList> {
+class _TopRatedMovieGridViewListState extends State<TopRatedMovieGridViewList> {
   final ScrollController _scrollController = ScrollController();
   var _page = 2;
   var _isLoading = false;
@@ -34,8 +36,8 @@ class _MovieGridViewListState extends State<MovieGridViewList> {
     if (percentage >= 70) {
       if (!_isLoading) {
         _isLoading = true;
-        await BlocProvider.of<PopularMoviesCubit>(context)
-            .fetchPopularMovies(page: _page++);
+        await BlocProvider.of<TopRatedCubit>(context)
+            .fetchTopRatedMovies(page: _page++);
         _isLoading = false;
       }
     }
@@ -62,13 +64,14 @@ class _MovieGridViewListState extends State<MovieGridViewList> {
       itemBuilder: (context, index) => GestureDetector(
         onTap: () {
           // go to movie details page
-          GoRouter.of(context).push(DetailsView.rn, extra: widget.model[index]);
+          GoRouter.of(context)
+              .push(DetailsView.rn, extra: widget.movies[index]);
         },
         child: GridViewListItem(
-          model: widget.model[index],
+          model: widget.movies[index],
         ),
       ),
-      itemCount: widget.model.length,
+      itemCount: widget.movies.length,
     );
   }
 }
