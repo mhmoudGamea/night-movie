@@ -24,5 +24,6 @@
 
 <hr/>
 <h4>what i add</h4>
+
 > i have recently add pagination feature to the app
 > i add movie trailers to movie section and tv trailers for tv section
