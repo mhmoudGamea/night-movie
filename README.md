@@ -20,12 +20,9 @@
   <li>using dartz package to return either [error or wanted data] and Equatable package</li>
   <li>in search i use multi search api to search about tv series or movies</li>
   <li>the user can add or remove it's movie to or from watchList</li>
-  <li>each user has it's own watchList from movies</li>
-  <li>each user can see tv series in web</li>
-  <li>i add movie trailers to movie section and tv trailers for tv section</li>
 </ul>
 
 <hr/>
-<h4>what i will add</h4>
-<li>how to rate movie or tv</li>
-<li>pagination so i can load 20 by 20 item when i go to the end of the list</li>
+<h4>what i add</h4>
+> i have recently add pagination feature to the app
+> i add movie trailers to movie section and tv trailers for tv section
