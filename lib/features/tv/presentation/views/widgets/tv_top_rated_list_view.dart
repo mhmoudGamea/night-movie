@@ -6,44 +6,69 @@ import 'package:night_movie/features/tv/presentation/model_views/tv_top_rated/tv
 import 'package:night_movie/features/tv/presentation/views/tv_details_view.dart';
 
 import '../../../../../core/utils/helper.dart';
-import '../../../../../core/widgets/awesome_message.dart';
 import '../../../../../core/widgets/movie_poster_image.dart';
-import '../../../../../core/widgets/shimmer_list_view.dart';
+import '../../../data/models/tv_model.dart';
 
-class TvTopRatedListView extends StatelessWidget {
-  const TvTopRatedListView({Key? key}) : super(key: key);
+class TvTopRatedListView extends StatefulWidget {
+  final List<TvModel> tvs;
+  const TvTopRatedListView({Key? key, required this.tvs}) : super(key: key);
+
+  @override
+  State<TvTopRatedListView> createState() => _TvTopRatedListViewState();
+}
+
+class _TvTopRatedListViewState extends State<TvTopRatedListView> {
+  final ScrollController _scrollController = ScrollController();
+  var _page = 2;
+  var _isLoading = false;
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_scrollListner);
+  }
+
+  void _scrollListner() async {
+    var currentPosition = _scrollController.position.pixels;
+    var maxScrollExtent = _scrollController.position.maxScrollExtent;
+    var percentage = (currentPosition / maxScrollExtent) * 100;
+    if (percentage >= 70) {
+      if (!_isLoading) {
+        _isLoading = true;
+        await BlocProvider.of<TvTopRatedCubit>(context)
+            .fetchTvTopRated(page: _page++);
+        _isLoading = false;
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _scrollController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TvTopRatedCubit, TvTopRatedState>(
-      builder: (context, state) {
-        if (state is TvTopRatedSuccess) {
-          return SizedBox(
-            height: 150,
-            child: ListView.separated(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: state.tvs.length,
-              separatorBuilder: (context, index) => const SizedBox(width: 10),
-              itemBuilder: (context, index) => GestureDetector(
-                onTap: () {
-                  GoRouter.of(context)
-                      .push(TvDetailsView.rn, extra: state.tvs[index].id);
-                },
-                child: state.tvs[index].backdropPath == null
-                    ? const NotAvilablePosterImage()
-                    : MoviePosterImage(
-                        imageUrl: Helper.getImagePath(
-                            state.tvs[index].backdropPath!)),
-              ),
-            ),
-          );
-        } else if (state is TvTopRatedFailure) {
-          return AwesomeMessage(height: 150, message: state.error);
-        } else {
-          return const ShimmerListView();
-        }
-      },
+    return SizedBox(
+      height: 150,
+      child: ListView.separated(
+        controller: _scrollController,
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: widget.tvs.length,
+        separatorBuilder: (context, index) => const SizedBox(width: 10),
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () {
+            GoRouter.of(context)
+                .push(TvDetailsView.rn, extra: widget.tvs[index].id);
+          },
+          child: widget.tvs[index].backdropPath == null
+              ? const NotAvilablePosterImage()
+              : MoviePosterImage(
+                  imageUrl:
+                      Helper.getImagePath(widget.tvs[index].backdropPath!)),
+        ),
+      ),
     );
   }
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:night_movie/core/widgets/section_header.dart';
-import 'package:night_movie/features/tv/presentation/views/tv_top_rated_view.dart';
-import 'package:night_movie/features/tv/presentation/views/widgets/tv_top_rated_list_view.dart';
+
+import '../../../../../core/widgets/section_header.dart';
+import '../tv_top_rated_view.dart';
+import 'tv_top_rated_list_view_bloc_consumer.dart';
 
 class TvTopRatedSection extends StatelessWidget {
   const TvTopRatedSection({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class TvTopRatedSection extends StatelessWidget {
               GoRouter.of(context).push(TvTopRatedView.rn);
             }),
         const SizedBox(height: 5),
-        const TvTopRatedListView(),
+        const TvTopRatedListViewBlocConsumer(),
       ],
     );
   }

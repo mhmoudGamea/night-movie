@@ -40,10 +40,10 @@ class TvRepoImpl implements TvRepo {
   }
 
   @override
-  Future<Either<Failure, List<TvModel>>> getTvTopRated() async {
+  Future<Either<Failure, List<TvModel>>> getTvTopRated({int page = 1}) async {
     try {
-      final response =
-          await ApiServices.get(endpoint: '/tv/top_rated?api_key=$apiKey');
+      final response = await ApiServices.get(
+          endpoint: '/tv/top_rated?api_key=$apiKey&page=$page');
       return right(TvModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {

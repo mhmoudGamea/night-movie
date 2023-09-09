@@ -20,3 +20,6 @@ class TvTopRatedFailure extends TvTopRatedState {
   final String error;
   const TvTopRatedFailure({required this.error});
 }
+
+// pagination states
+class TvTopRatedPaginationLoading extends TvTopRatedState {}

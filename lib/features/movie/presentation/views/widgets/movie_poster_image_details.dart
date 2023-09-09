@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/arrow_back_icon.dart';
-import '../../../../../core/widgets/not_avilable_poster_image.dart';
 import '../../../../../core/widgets/shimmer_indicator.dart';
 
 class MoviePosterImageDetails extends StatelessWidget {

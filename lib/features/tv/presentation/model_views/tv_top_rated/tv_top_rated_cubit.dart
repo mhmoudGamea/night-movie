@@ -10,9 +10,9 @@ class TvTopRatedCubit extends Cubit<TvTopRatedState> {
   final TvRepo _tvRepo;
   TvTopRatedCubit(this._tvRepo) : super(TvTopRatedInitial());
 
-  Future<void> fetchTvTopRated() async {
-    emit(TvTopRatedLoading());
-    final response = await _tvRepo.getTvTopRated();
+  Future<void> fetchTvTopRated({int page = 1}) async {
+    page == 1 ? emit(TvTopRatedLoading()) : emit(TvTopRatedPaginationLoading());
+    final response = await _tvRepo.getTvTopRated(page: page);
     response.fold((failure) {
       emit(TvTopRatedFailure(error: failure.errorMessage));
     }, (tvs) {
