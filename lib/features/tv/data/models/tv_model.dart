@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 
 class TvModel extends Equatable {
   final String? backdropPath;
-  final String firstAirDate;
+  final String? firstAirDate;
   final List<dynamic> genreIds;
   final int id;
   final String name;
@@ -12,7 +12,7 @@ class TvModel extends Equatable {
 
   const TvModel(
       {this.backdropPath,
-      required this.firstAirDate,
+      this.firstAirDate,
       required this.genreIds,
       required this.id,
       required this.name,

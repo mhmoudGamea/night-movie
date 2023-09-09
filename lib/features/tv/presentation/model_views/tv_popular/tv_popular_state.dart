@@ -20,3 +20,6 @@ class TvPopularFailure extends TvPopularState {
   final String error;
   const TvPopularFailure({required this.error});
 }
+
+// pagination states
+class TvPopularPaginationLoading extends TvPopularState {}

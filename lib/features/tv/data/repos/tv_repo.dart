@@ -8,7 +8,7 @@ import '../models/tv_model.dart';
 
 abstract class TvRepo {
   Future<Either<Failure, List<TvModel>>> getOnTheAir();
-  Future<Either<Failure, List<TvModel>>> getTvPopular();
+  Future<Either<Failure, List<TvModel>>> getTvPopular({int page = 1});
   Future<Either<Failure, List<TvModel>>> getTvTopRated();
   Future<Either<Failure, TvDetailModel>> getTvSeriesDetails(
       {required int tvSeiesId});

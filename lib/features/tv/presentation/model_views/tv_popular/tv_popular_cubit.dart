@@ -9,9 +9,9 @@ class TvPopularCubit extends Cubit<TvPopularState> {
   final TvRepo _tvRepo;
   TvPopularCubit(this._tvRepo) : super(TvPopularInitial());
 
-  Future<void> fetchTvPopular() async {
-    emit(TvPopularLoading());
-    final response = await _tvRepo.getTvPopular();
+  Future<void> fetchTvPopular({int page = 1}) async {
+    page == 1 ? emit(TvPopularLoading()) : emit(TvPopularPaginationLoading());
+    final response = await _tvRepo.getTvPopular(page: page);
     response.fold((failure) {
       emit(TvPopularFailure(error: failure.errorMessage));
     }, (tvs) {

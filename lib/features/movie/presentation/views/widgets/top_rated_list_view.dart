@@ -60,7 +60,7 @@ class _TopRatedListViewState extends State<TopRatedListView> {
         separatorBuilder: (context, index) => const SizedBox(width: 10),
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
-            GoRouter.of(context)
+            GoRouter.of(context) 
                 .push(DetailsView.rn, extra: widget.movies[index]);
           },
           child: widget.movies[index].backdropPath == null

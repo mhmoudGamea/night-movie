@@ -17,14 +17,12 @@ class MoviePosterImageDetails extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           height: 230,
-          child: imageUrl == null
-              ? const NotAvilablePosterImage()
-              : CachedNetworkImage(
-                  imageUrl: imageUrl!,
-                  fit: BoxFit.cover,
-                  placeholder: (context, url) => const ShimmerIndicator(
-                      width: double.infinity, height: 230),
-                ),
+          child: CachedNetworkImage(
+            imageUrl: imageUrl!,
+            fit: BoxFit.cover,
+            placeholder: (context, url) =>
+                const ShimmerIndicator(width: double.infinity, height: 230),
+          ),
         ),
         const Positioned(
           top: 15,

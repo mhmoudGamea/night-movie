@@ -5,6 +5,7 @@ import 'package:night_movie/features/tv/presentation/views/widgets/tv_trailers_l
 import '../../../../../core/constants.dart';
 import '../../../../../core/utils/helper.dart';
 import '../../../../../core/widgets/custom_error_box.dart';
+import '../../../../../core/widgets/not_avilable_poster_image.dart';
 import '../../../../movie/presentation/views/widgets/movie_poster_image_details.dart';
 import '../../model_views/details/details_cubit.dart';
 import 'outside_tabs_section.dart';
@@ -37,10 +38,10 @@ class TvDetailsViewBody extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  MoviePosterImageDetails(
-                      imageUrl: state.tvDetailModel.backdropPath == null
-                          ? null
-                          : Helper.getImagePath(
+                  state.tvDetailModel.backdropPath == null
+                      ? const NotAvilablePosterImage()
+                      : MoviePosterImageDetails(
+                          imageUrl: Helper.getImagePath(
                               state.tvDetailModel.backdropPath!)),
                   const SizedBox(height: 18),
                   const TvTrailersListView(),

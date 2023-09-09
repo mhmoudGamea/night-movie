@@ -26,10 +26,10 @@ class TvRepoImpl implements TvRepo {
   }
 
   @override
-  Future<Either<Failure, List<TvModel>>> getTvPopular() async {
+  Future<Either<Failure, List<TvModel>>> getTvPopular({int page = 1}) async {
     try {
-      final response =
-          await ApiServices.get(endpoint: '/tv/popular?api_key=$apiKey');
+      final response = await ApiServices.get(
+          endpoint: '/tv/popular?api_key=$apiKey&page=$page');
       return right(TvModel.getListFromResponse(response));
     } catch (error) {
       if (error is DioError) {
