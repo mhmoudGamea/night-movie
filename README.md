@@ -12,19 +12,25 @@
 <h4>more screenshots in demo screenshots folder <a href="https://github.com/mhmoudGamea/night-movie/tree/main/demo%20screenshots">  go</a></h4>
 
 <hr/>
-<ul>
-  <li>i use mvvm pattern in this app and bloc as state managment</li>
-  <li>using shimmer package to make image appear smoothly and nicely also i use cached network images</li>
-  <li>using repos, abstract classes encapsulation and many of oop principles</li>
-  <li>using solid priciples like single responcibility and dependency inversion</li>
-  <li>using dartz package to return either [error or wanted data] and Equatable package</li>
-  <li>in search i use multi search api to search about tv series or movies</li>
-  <li>the user can add or remove it's movie to or from watchList</li>
-</ul>
+<h4>Features that i use</h4>
+
+> i use mvvm pattern in this app and bloc as state managment
+
+> using shimmer package to make image appear smoothly and nicely also i use cached network images
+
+> using repos, abstract classes encapsulation and many of oop principles
+
+> using solid priciples like single responcibility and dependency inversion
+
+> using dartz package to return either [error or wanted data] and Equatable package
+
+> in search i use multi search api to search about tv series or movies
 
 <hr/>
-<h4>what i add</h4>
+<h4>What i add</h4>
 
 > i have recently add pagination feature to the app
 
 > i add movie trailers to movie section and tv trailers for tv section
+
+> the user can add or remove it's movie to or from watchList
