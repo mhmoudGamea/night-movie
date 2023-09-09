@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/widgets/custom_error_box.dart';
-import '../../model_views/tv_popular/tv_popular_cubit.dart';
-import 'tv_grid_view_list.dart';
+import 'tv_popular_view_body_bloc_consumer.dart';
 
 class TvPopularViewBody extends StatelessWidget {
   const TvPopularViewBody({Key? key}) : super(key: key);
@@ -20,17 +17,7 @@ class TvPopularViewBody extends StatelessWidget {
               Color.fromARGB(255, 15, 16, 17),
             ]),
       ),
-      child: BlocBuilder<TvPopularCubit, TvPopularState>(
-        builder: (context, state) {
-          if (state is TvPopularSuccess) {
-            return TvGridViewList(model: state.tvs);
-          } else if (state is TvPopularFailure) {
-            return CustomErrorBox(errorMessage: state.error);
-          } else {
-            return const SizedBox();
-          }
-        },
-      ),
+      child: const TvPopularViewBodyBlocConsumer(),
     );
   }
 }

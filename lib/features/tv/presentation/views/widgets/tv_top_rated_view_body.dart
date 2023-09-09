@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/widgets/custom_error_box.dart';
-import '../../model_views/tv_top_rated/tv_top_rated_cubit.dart';
-import 'tv_grid_view_list.dart';
+import 'tv_top_rated_view_body_bloc_consumer.dart';
 
 class TvTopRatedViewBody extends StatelessWidget {
   const TvTopRatedViewBody({Key? key}) : super(key: key);
@@ -20,17 +17,7 @@ class TvTopRatedViewBody extends StatelessWidget {
               Color.fromARGB(255, 15, 16, 17),
             ]),
       ),
-      child: BlocBuilder<TvTopRatedCubit, TvTopRatedState>(
-        builder: (context, state) {
-          if (state is TvTopRatedSuccess) {
-            return TvGridViewList(model: state.tvs);
-          } else if (state is TvTopRatedFailure) {
-            return CustomErrorBox(errorMessage: state.error);
-          } else {
-            return const SizedBox();
-          }
-        },
-      ),
+      child: const TvTopRatedViewBodyBlocConsumer(),
     );
   }
 }

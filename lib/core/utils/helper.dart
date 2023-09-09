@@ -16,9 +16,11 @@ class Helper {
     return DateFormat.y().format(DateTime.parse(date));
   }
 
-  static String getWholeDate(String date) {
-    if (date.isEmpty) {
-      return '';
+  static String getWholeDate(String? date) {
+    if (date == null) {
+      return 'Un known';
+    } else if (date.isEmpty) {
+      return 'Un known';
     }
     return DateFormat.yMMMd().format(DateTime.parse(date));
   }
