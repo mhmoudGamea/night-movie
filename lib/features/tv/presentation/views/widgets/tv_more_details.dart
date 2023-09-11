@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:night_movie/core/utils/helper.dart';
 import 'package:night_movie/core/widgets/show_web_view.dart';
 
+import '../../../../../core/constants.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_rate_widget.dart';
 import '../../../../movie/presentation/views/widgets/expanded_widget.dart';
@@ -52,6 +53,7 @@ class TvMoreDetails extends StatelessWidget {
                 icon: Image.asset(
                   'assets/images/view.png',
                   width: 22,
+                  color: primaryColor,
                 ),
               ),
             ],

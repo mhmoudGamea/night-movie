@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:night_movie/core/widgets/shimmer_grid_view_2_.dart';
 import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
 
 import '../../../../../core/constants.dart';
@@ -29,8 +30,7 @@ class _WatchListViewBodyState extends State<WatchListViewBody> {
           if (snapshot.hasError) {
             return CustomErrorBox(errorMessage: snapshot.error.toString());
           } else if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-                child: CircularProgressIndicator(color: primaryColor));
+            return const ShimmerGridView2();
           } else if (snapshot.hasData) {
             List<MovieModel> watch = [];
             snapshot.data!.docs.map((item) {
