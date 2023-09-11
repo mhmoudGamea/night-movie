@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:night_movie/core/widgets/not_avilable_poster_image.dart';
 
 import '../../../../../core/utils/helper.dart';
 import '../../../../../core/widgets/custom_error_box.dart';
@@ -31,10 +32,10 @@ class RecommendationSection extends StatelessWidget {
                 GoRouter.of(context)
                     .push(DetailsView.rn, extra: state.recommendations[index]);
               },
-              child: MoviePosterImage(
-                  imageUrl: state.recommendations[index].backdropPath == null
-                      ? null
-                      : Helper.getImagePath(
+              child: state.recommendations[index].backdropPath == null
+                  ? const NotAvilablePosterImage()
+                  : MoviePosterImage(
+                      imageUrl: Helper.getImagePath(
                           state.recommendations[index].backdropPath!)),
             ),
             itemCount: state.recommendations.length,

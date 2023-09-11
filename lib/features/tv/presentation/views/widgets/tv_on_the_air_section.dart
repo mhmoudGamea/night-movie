@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:night_movie/core/widgets/now_playing_shimmer.dart';
 
 import '../../../../../core/constants.dart';
+import '../../../../../core/utils/helper.dart';
 import '../../../../../core/widgets/awesome_message.dart';
 import '../../../../../core/widgets/not_avilable_poster_image.dart';
 import '../../../../../core/widgets/shimmer_indicator.dart';
@@ -58,7 +59,8 @@ class TvOnTheAirSection extends StatelessWidget {
                                 width: MediaQuery.of(context).size.width * .9,
                                 height: 200)
                             : CachedNetworkImage(
-                                imageUrl: '$imageBaseUrl${item.backdropPath}',
+                                imageUrl:
+                                    Helper.getImagePath(item.backdropPath!),
                                 fit: BoxFit.cover,
                                 height: 200,
                                 placeholder: (context, name) =>

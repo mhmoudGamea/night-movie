@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:night_movie/core/utils/service_locator.dart';
 
 import './core/utils/api_services.dart';
 import './core/constants.dart';
@@ -11,6 +12,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await ServiceLocator.setUp();
   ApiServices.initializeDio();
   AppRoutes.getAuthState();
   runApp(const NightMovie());

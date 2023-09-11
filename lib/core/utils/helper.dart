@@ -3,13 +3,18 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:night_movie/core/models/config_model.dart';
+import 'package:night_movie/core/utils/service_locator.dart';
 import 'package:night_movie/core/utils/styles.dart';
 
 import '../constants.dart';
 
 class Helper {
+  static final ConfigModel _configModel =
+      ServiceLocator.getIt.get<ConfigModel>();
+
   static String getImagePath(String endPoint) {
-    return '$imageBaseUrl$endPoint';
+    return '${_configModel.baseImageUrl}$endPoint';
   }
 
   static String getYearOfDate(String date) {

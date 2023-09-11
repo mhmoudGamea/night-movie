@@ -3,10 +3,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:night_movie/core/utils/helper.dart';
 import 'package:night_movie/core/widgets/now_playing_shimmer.dart';
 
 import '../../../../../core/constants.dart';
 import '../../../../../core/widgets/awesome_message.dart';
+import '../../../../../core/widgets/not_avilable_poster_image.dart';
 import '../../../../../core/widgets/shimmer_indicator.dart';
 import '../../model_views/now_playing_cubit/now_playing_cubit.dart';
 import '../details_view.dart';
@@ -52,14 +54,22 @@ class NowPlayingSection extends StatelessWidget {
                       blendMode: BlendMode.color,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(5),
-                        child: CachedNetworkImage(
-                          imageUrl: '$imageBaseUrl${item.backdropPath}',
-                          fit: BoxFit.cover,
-                          height: 200,
-                          placeholder: (context, name) => ShimmerIndicator(
-                              width: MediaQuery.of(context).size.width * .9,
-                              height: 200),
-                        ),
+                        child: item.backdropPath == null
+                            ? NotAvilablePosterImage(
+                                width: MediaQuery.of(context).size.width * .9,
+                                height: 200)
+                            : CachedNetworkImage(
+                                imageUrl:
+                                    Helper.getImagePath(item.backdropPath!),
+                                fit: BoxFit.cover,
+                                height: 200,
+                                placeholder: (context, name) =>
+                                    ShimmerIndicator(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                .9,
+                                        height: 200),
+                              ),
                       ),
                     ),
                   ),
