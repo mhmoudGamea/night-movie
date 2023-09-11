@@ -110,9 +110,9 @@ class TvRepoImpl implements TvRepo {
 
   @override
   Future<Either<Failure, List<TvModel>>> getTvRecommendations(
-      {required int tvId, int page = 1}) async {
+      {required int tvId}) async {
     try {
-      var query = {'api_key': _configModel.apiKey, 'page': page};
+      var query = {'api_key': _configModel.apiKey};
       final response = await ApiServices.get(
           endpoint: '/tv/$tvId/recommendations', query: query);
       return right(TvModel.getListFromResponse(response));

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:night_movie/core/widgets/shimmer_grid_view_3.dart';
-import 'package:night_movie/features/tv/presentation/model_views/tv_episodes/tv_episodes_cubit.dart';
 
 import '../../../../../core/widgets/custom_error_box.dart';
+import '../../../../../core/widgets/shimmer_grid_view_3.dart';
+import '../../model_views/tv_episodes/tv_episodes_cubit.dart';
 import 'tv_recommendation_grid_view.dart';
 
 class TvRecommendation extends StatelessWidget {

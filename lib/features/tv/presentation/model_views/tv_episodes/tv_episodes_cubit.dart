@@ -40,9 +40,9 @@ class TvEpisodesCubit extends Cubit<TvEpisodesState> {
     return _moreLikeThisTab;
   }
 
-  Future<void> fetchRecommendation({required int tvId, int page = 1}) async {
+  Future<void> fetchRecommendation({required int tvId}) async {
     emit(TvRecommendationLoading());
-    var response = await _tvRepo.getTvRecommendations(tvId: tvId, page: page);
+    var response = await _tvRepo.getTvRecommendations(tvId: tvId);
 
     response.fold((failure) {
       emit(TvRecommendationFailure(error: failure.errorMessage));
