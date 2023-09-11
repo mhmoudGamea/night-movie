@@ -20,5 +20,6 @@ class ServiceLocator {
   static Future<void> setUp() async {
     final configData = await jsonDecode();
     _getIt.registerSingleton<ConfigModel>(ConfigModel.fromJson(configData));
+    json.encode(configData);
   }
 }
