@@ -26,6 +26,8 @@
 
 > in search i use multi search api to search about tv series or movies
 
+> use get_it package for (DI) pattern
+
 > using JSON serialization to get secure data like api_key and deserialization
 
 <hr/>
