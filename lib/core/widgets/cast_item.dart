@@ -44,8 +44,8 @@ class CastItem extends StatelessWidget {
           child: Text(
             castModel.actorName!,
             style: Styles.font13.copyWith(color: Colors.grey[700]),
-            maxLines: 2,
-            overflow: TextOverflow.clip,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
       ],

@@ -17,9 +17,9 @@ class MovieDescription extends StatelessWidget {
         trimLines: 2,
         trimMode: TrimMode.Line,
         trimCollapsedText: 'Show More',
-        trimExpandedText: 'Show less',
-        moreStyle: Styles.font14.copyWith(color: primaryColor.withOpacity(0.3)),
-        lessStyle: Styles.font14.copyWith(color: primaryColor.withOpacity(0.6)),
+        trimExpandedText: ' Show less',
+        moreStyle: Styles.font14.copyWith(color: primaryColor.withOpacity(0.4)),
+        lessStyle: Styles.font14.copyWith(color: primaryColor.withOpacity(0.5)),
       ),
     );
   }

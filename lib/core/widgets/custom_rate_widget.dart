@@ -24,7 +24,8 @@ class CustomRateWidget extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5), color: primaryColor),
+              borderRadius: BorderRadius.circular(5),
+              color: primaryColor.withOpacity(0.5)),
           child: Text(
               date == null
                   ? 'N/A'

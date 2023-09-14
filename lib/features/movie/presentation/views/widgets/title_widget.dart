@@ -66,11 +66,11 @@ class _TitleWidgetState extends State<TitleWidget> {
                     inWatchList: inWatchList);
               },
               icon: Icon(
-                inWatchList
-                    ? Icons.bookmark_rounded
-                    : Icons.bookmark_outline_rounded,
+                inWatchList ? Icons.bookmark_add : Icons.bookmark_add_outlined,
                 size: 20,
-                color: primaryColor,
+                color: inWatchList
+                    ? primaryColor.withOpacity(0.4)
+                    : primaryColor.withOpacity(0.5),
               ),
             );
           },
