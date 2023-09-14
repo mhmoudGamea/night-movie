@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:night_movie/core/utils/helper.dart';
 import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
 
 import 'movie_poster.dart';
@@ -17,19 +17,9 @@ class Details extends StatelessWidget {
         children: [
           // movie trailer video
           const MovieTrailer(),
-          // poster + name, date, rate and geners
+          // poster + name, year, rate and geners
           Positioned(top: 130, left: 20, child: MoviePoster(model: model)),
-          Positioned(
-            top: 0,
-            left: 0,
-            child: IconButton(
-              onPressed: () {
-                GoRouter.of(context).pop();
-              },
-              icon: const Icon(Icons.arrow_back_ios_rounded,
-                  size: 20, color: Colors.white),
-            ),
-          ),
+          Positioned(top: 0, left: 0, child: Helper.iconBack(context: context)),
         ],
       ),
     );

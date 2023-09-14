@@ -34,6 +34,16 @@ class Helper {
     return (rate * 10).toStringAsFixed(0);
   }
 
+  static Widget iconBack({required BuildContext context}) {
+    return IconButton(
+      onPressed: () {
+        GoRouter.of(context).pop();
+      },
+      icon: const Icon(Icons.arrow_back_ios_rounded,
+          size: 20, color: Colors.white),
+    );
+  }
+
   static AppBar appBarWidget({
     required String name,
     required BuildContext context,

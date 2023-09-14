@@ -6,7 +6,7 @@ import 'package:night_movie/core/widgets/show_web_view.dart';
 import '../../../../../core/constants.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_rate_widget.dart';
-import '../../../../movie/presentation/views/widgets/expanded_widget.dart';
+import '../../../../movie/presentation/views/widgets/movie_description.dart';
 import '../../../../tv/data/models/tv_detail_model.dart';
 
 class TvMoreDetails extends StatelessWidget {
@@ -68,7 +68,7 @@ class TvMoreDetails extends StatelessWidget {
                 : null,
           ),
           const SizedBox(height: 10),
-          ExpandedWidget(overview: model.overview),
+          MovieDescription(overview: model.overview),
         ],
       ),
     );

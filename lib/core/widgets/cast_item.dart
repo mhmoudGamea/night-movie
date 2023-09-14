@@ -1,9 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:night_movie/core/models/cast_model.dart';
 import 'package:night_movie/core/utils/helper.dart';
 import 'package:night_movie/core/widgets/not_avilable_poster_image.dart';
 
 import '../utils/styles.dart';
+import 'shimmer_indicator.dart';
 
 class CastItem extends StatelessWidget {
   final CastModel castModel;
@@ -25,9 +27,13 @@ class CastItem extends StatelessWidget {
                 height: 100,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.network(
-                    Helper.getImagePath(castModel.actorProfilePath!),
+                  child: CachedNetworkImage(
+                    imageUrl: Helper.getImagePath(castModel.actorProfilePath!),
                     fit: BoxFit.cover,
+                    placeholder: (context, url) => const ShimmerIndicator(
+                      width: 80,
+                      height: 100,
+                    ),
                   ),
                 ),
               ),

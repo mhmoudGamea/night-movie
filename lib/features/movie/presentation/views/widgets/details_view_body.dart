@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:night_movie/core/constants.dart';
 import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
-import 'package:night_movie/features/movie/presentation/views/widgets/section_details_header.dart';
+import 'package:night_movie/features/movie/presentation/views/widgets/movie_description.dart';
 
 import '../../../../../core/widgets/cast_builder.dart';
 import './recommendation_section.dart';
@@ -31,14 +30,8 @@ class DetailsViewBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Details(model: model),
-            const SizedBox(height: 10),
-            // MovieMoreDetails(model: model),
-            const SectionDetailsHeader(header: 'Cast', color: primaryColor),
-            const SizedBox(height: 5),
+            MovieDescription(overview: model.overview),
             const CastBuilder(),
-            const SizedBox(height: 5),
-            const SectionDetailsHeader(
-                header: 'Recommendation', color: primaryColor),
             const SizedBox(height: 5),
             const RecommendationSection(),
           ],

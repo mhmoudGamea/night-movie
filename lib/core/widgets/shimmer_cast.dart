@@ -10,8 +10,9 @@ class ShimmerCast extends StatelessWidget {
       baseColor: Colors.grey[850]!,
       highlightColor: Colors.grey[800]!,
       child: SizedBox(
-        height: 130,
+        height: 140,
         child: ListView.separated(
+          padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
           scrollDirection: Axis.horizontal,
           separatorBuilder: (context, index) => const SizedBox(width: 10),
           itemCount: 10,
