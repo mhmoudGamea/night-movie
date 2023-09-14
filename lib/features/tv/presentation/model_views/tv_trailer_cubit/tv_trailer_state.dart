@@ -13,8 +13,7 @@ class TvTrailerLoading extends TvTrailerState {}
 
 class TvTrailerSuccess extends TvTrailerState {
   final List<TrailerModel> trailers;
-  final bool official;
-  const TvTrailerSuccess({required this.trailers, required this.official});
+  const TvTrailerSuccess({required this.trailers});
 }
 
 class TvTrailerFailure extends TvTrailerState {

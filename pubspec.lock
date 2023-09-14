@@ -424,6 +424,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  neumorphic_button:
+    dependency: "direct main"
+    description:
+      name: neumorphic_button
+      sha256: "6ebc849871592e4081fb80cddad35551142e1ca0a50703136d5b2f4422ffe12f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1+2"
   octo_image:
     dependency: transitive
     description:

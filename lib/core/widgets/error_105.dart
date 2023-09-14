@@ -4,7 +4,8 @@ import 'package:night_movie/core/constants.dart';
 import 'package:night_movie/core/utils/styles.dart';
 
 class Error105 extends StatelessWidget {
-  const Error105({Key? key}) : super(key: key);
+  final String text;
+  const Error105({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,17 +16,17 @@ class Error105 extends StatelessWidget {
         color: primaryFirstDark,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: const Row(
+      child: Row(
         children: [
-          Icon(
+          const Icon(
             FontAwesomeIcons.triangleExclamation,
             size: 20,
             color: Colors.amber,
           ),
-          SizedBox(width: 15),
+          const SizedBox(width: 15),
           Flexible(
             child: Text(
-              'This video contains content from Core Republic, who has blocked it on copyright grounds',
+              text,
               style: Styles.font14,
             ),
           ),

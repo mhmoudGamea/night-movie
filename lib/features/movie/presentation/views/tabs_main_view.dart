@@ -19,8 +19,8 @@ class _TabsMainViewState extends State<TabsMainView> {
   var _currentIndex = 0;
 
   final List<Map<String, dynamic>> _screens = [
-    {'title': 'Night movie', 'screen': const MovieView()},
-    {'title': 'Tv series', 'screen': const TvView()},
+    {'title': 'Movies', 'screen': const MovieView()},
+    {'title': 'Tv Series', 'screen': const TvView()},
   ];
 
   Map<String, dynamic> getScreen(int value) {
@@ -43,10 +43,6 @@ class _TabsMainViewState extends State<TabsMainView> {
             padding: const EdgeInsets.symmetric(
               vertical: 4,
               horizontal: 8,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: primaryColor,
             ),
             child: Image.asset('assets/images/menu.png', width: 18),
           ),

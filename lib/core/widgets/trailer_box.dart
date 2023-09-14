@@ -11,13 +11,12 @@ class TrailerBox extends StatefulWidget {
 }
 
 class _TrailerBoxState extends State<TrailerBox> {
-  late YoutubePlayerController _controller;
-  @override
-  void initState() {
-    String? videoId;
-    videoId = YoutubePlayer.convertUrlToId(
+  late YoutubePlayerController _youtubeController;
+
+  void _videoSetub() {
+    String? videoId = YoutubePlayer.convertUrlToId(
         'https://www.youtube.com/watch?v=${widget.videoKey}');
-    _controller = YoutubePlayerController(
+    _youtubeController = YoutubePlayerController(
       initialVideoId: videoId!,
       flags: const YoutubePlayerFlags(
         autoPlay: false,
@@ -25,23 +24,27 @@ class _TrailerBoxState extends State<TrailerBox> {
         isLive: false,
       ),
     );
+  }
+
+  @override
+  void initState() {
+    _videoSetub();
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _youtubeController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 220,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: YoutubePlayer(
-          controller: _controller,
+          controller: _youtubeController,
           showVideoProgressIndicator: true,
           progressIndicatorColor: primaryColor,
           progressColors: ProgressBarColors(

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../constants.dart';
-
 class ArrowBackIcon extends StatelessWidget {
   const ArrowBackIcon({
     super.key,
@@ -14,10 +12,6 @@ class ArrowBackIcon extends StatelessWidget {
       padding: const EdgeInsets.symmetric(
         horizontal: 3,
       ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: primaryColor,
-      ),
       child: IconButton(
         padding: EdgeInsets.zero,
         constraints: const BoxConstraints(),
@@ -27,7 +21,7 @@ class ArrowBackIcon extends StatelessWidget {
         icon: const Icon(
           Icons.arrow_back_ios_rounded,
           color: Colors.white,
-          size: 17,
+          size: 20,
         ),
       ),
     );

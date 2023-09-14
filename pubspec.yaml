@@ -57,6 +57,7 @@ dependencies:
   flutter_neumorphic: ^3.2.0
   firebase_auth: ^4.2.2
   get_it: ^7.6.4
+  neumorphic_button: ^0.0.1+2
 
 dev_dependencies:
   flutter_test:

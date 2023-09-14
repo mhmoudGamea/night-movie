@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:night_movie/core/models/trailer_model.dart';
+import 'package:night_movie/core/widgets/error_105.dart';
 import 'package:night_movie/features/movie/data/repos/movie_repo.dart';
+
+import '../../../../../core/widgets/trailer_box.dart';
 
 part 'trailer_state.dart';
 
@@ -17,21 +20,30 @@ class TrailerCubit extends Cubit<TrailerState> {
       debugPrint(failure.errorMessage);
       emit(TrailerFailure(error: failure.errorMessage));
     }, (trailers) {
-      var official = isOfficial(trailers);
-      emit(TrailerSuccess(trailers: trailers, official: official));
+      emit(TrailerSuccess(trailers: trailers));
     });
   }
 
-  bool isOfficial(List<TrailerModel> trailers) {
-    var official = false;
-    if (trailers.isNotEmpty) {
-      for (var i = 0; i < trailers.length; i++) {
-        if (trailers[i].official) {
-          official = true;
-          break;
-        }
+  Widget showTrailer(
+      {required List<TrailerModel> trailers, required String type}) {
+    for (var trailer in trailers) {
+      if (trailer.type == 'Trailer' && trailer.official) {
+        return SizedBox(
+          height: trailers.isEmpty ? 0 : 150,
+          width: double.infinity,
+          child: TrailerBox(
+            videoKey: trailer.key,
+          ),
+        );
+      }
+      if (trailer.type == 'Trailer' && !trailer.official) {
+        return const Error105(
+            text:
+                'This video contains content from Core Republic, who has blocked it on copyright grounds');
       }
     }
-    return official;
+    // trailers.isEmpty
+    return Error105(
+        text: 'Sorry, there ara no official trailer for this $type right now');
   }
 }

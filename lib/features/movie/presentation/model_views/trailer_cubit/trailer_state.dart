@@ -13,8 +13,7 @@ class TrailerLoading extends TrailerState {}
 
 class TrailerSuccess extends TrailerState {
   final List<TrailerModel> trailers;
-  final bool official;
-  const TrailerSuccess({required this.trailers, required this.official});
+  const TrailerSuccess({required this.trailers});
 }
 
 class TrailerFailure extends TrailerState {

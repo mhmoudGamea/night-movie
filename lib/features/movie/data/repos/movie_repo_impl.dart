@@ -67,6 +67,7 @@ class MovieRepoImpl implements MovieRepo {
   @override
   Future<Either<Failure, List<TrailerModel>>> getTrailer(
       {required int movieId}) async {
+    print(movieId);
     var query = {'api_key': _configModel.apiKey};
     try {
       final response = await ApiServices.get(
