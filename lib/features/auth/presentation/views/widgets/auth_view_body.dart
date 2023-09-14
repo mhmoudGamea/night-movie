@@ -22,7 +22,6 @@ class _AuthViewBodyState extends State<AuthViewBody> {
           height: 200,
           child: Image.asset(
             'assets/images/remove.png',
-            // fit: BoxFit.cover,
             width: double.infinity,
           ),
         ),

@@ -43,11 +43,12 @@ class _TitleWidgetState extends State<TitleWidget> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SizedBox(
-          width: MediaQuery.of(context).size.width * 0.83,
+        Flexible(
           child: Text(
             widget.model.title,
-            style: Styles.font17.copyWith(color: primaryColor),
+            style: Styles.font17,
+            maxLines: 2,
+            overflow: TextOverflow.fade,
           ),
         ),
         BlocBuilder<WatchListCubit, WatchListState>(

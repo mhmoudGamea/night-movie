@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/helper.dart';
+import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/gener_box.dart';
 
 class MovieGenerGenerated extends StatelessWidget {
@@ -20,7 +21,14 @@ class MovieGenerGenerated extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
               itemCount: myGeners.length,
-              separatorBuilder: (context, index) => const SizedBox(width: 5),
+              separatorBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: Text(
+                  '|',
+                  style: Styles.font13.copyWith(
+                      color: const Color.fromARGB(255, 135, 134, 134)),
+                ),
+              ),
               itemBuilder: (context, index) => GenerBox(text: myGeners[index]),
             ),
           )

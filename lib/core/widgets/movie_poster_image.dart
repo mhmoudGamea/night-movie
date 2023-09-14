@@ -10,20 +10,19 @@ class MoviePosterImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2.6 / 4,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: CachedNetworkImage(
-            imageUrl: imageUrl!,
-            fit: BoxFit.cover,
-            placeholder: (context, name) =>
-                const ShimmerIndicator(width: 97.5, height: 150),
-          ),
+    return Container(
+      width: 97.5,
+      height: 150,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: CachedNetworkImage(
+          imageUrl: imageUrl!,
+          fit: BoxFit.cover,
+          placeholder: (context, name) =>
+              const ShimmerIndicator(width: 97.5, height: 150),
         ),
       ),
     );

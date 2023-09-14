@@ -42,7 +42,10 @@ class _TrailerBoxState extends State<TrailerBox> {
   Widget build(BuildContext context) {
     return SizedBox(
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(15),
+          bottomRight: Radius.circular(15),
+        ),
         child: YoutubePlayer(
           controller: _youtubeController,
           showVideoProgressIndicator: true,
