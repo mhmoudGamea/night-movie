@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/helper.dart';
-import '../../../../../core/widgets/movie_poster_image.dart';
+import '../../../../../core/widgets/movie_tv_poster_image.dart';
 import '../../../../../core/widgets/not_avilable_poster_image.dart';
 import '../../../data/models/movie_model/movie_model.dart';
 import '../../model_views/popular_cubit/popular_movies_cubit.dart';
@@ -65,7 +65,7 @@ class _PopularListViewState extends State<PopularListView> {
           },
           child: widget.movies[index].backdropPath == null
               ? const NotAvilablePosterImage()
-              : MoviePosterImage(
+              : MovieTvPosterImage(
                   imageUrl:
                       Helper.getImagePath(widget.movies[index].backdropPath!)),
         ),

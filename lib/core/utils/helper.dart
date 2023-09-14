@@ -285,4 +285,16 @@ class Helper {
       msg: msg,
     );
   }
+
+  // separated widget between geners in tv and movie
+  static Widget generSeparate() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: Text(
+        '|',
+        style: Styles.font13
+            .copyWith(color: const Color.fromARGB(255, 135, 134, 134)),
+      ),
+    );
+  }
 }

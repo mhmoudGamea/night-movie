@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:night_movie/core/widgets/shimmer_indicator.dart';
 import 'package:night_movie/features/tv/presentation/model_views/tv_trailer_cubit/tv_trailer_cubit.dart';
 
-class TvTrailersListView extends StatelessWidget {
-  const TvTrailersListView({Key? key}) : super(key: key);
+class TvTrailer extends StatelessWidget {
+  const TvTrailer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

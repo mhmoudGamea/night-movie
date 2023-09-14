@@ -5,7 +5,7 @@ import 'package:night_movie/features/tv/presentation/model_views/tv_popular/tv_p
 import 'package:night_movie/features/tv/presentation/views/tv_details_view.dart';
 
 import '../../../../../core/utils/helper.dart';
-import '../../../../../core/widgets/movie_poster_image.dart';
+import '../../../../../core/widgets/movie_tv_poster_image.dart';
 import '../../../../../core/widgets/not_avilable_poster_image.dart';
 import '../../../data/models/tv_model.dart';
 
@@ -65,7 +65,7 @@ class _TvPopularListViewState extends State<TvPopularListView> {
           },
           child: widget.tvs[index].backdropPath == null
               ? const NotAvilablePosterImage()
-              : MoviePosterImage(
+              : MovieTvPosterImage(
                   imageUrl:
                       Helper.getImagePath(widget.tvs[index].backdropPath!),
                 ),

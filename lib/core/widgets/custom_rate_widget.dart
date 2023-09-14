@@ -47,9 +47,6 @@ class CustomRateWidget extends StatelessWidget {
                   ? '$numberOfSeasons Season'
                   : '$numberOfSeasons Seasons',
               style: Styles.font13),
-        const SizedBox(width: 10),
-        if (eposideRunTime != null)
-          Text('$eposideRunTime m', style: Styles.font13),
       ],
     );
   }

@@ -32,7 +32,7 @@ class TvTrailerCubit extends Cubit<TvTrailerState> {
     for (var trailer in trailers) {
       if (trailer.type == 'Trailer' && trailer.official) {
         return SizedBox(
-          height: trailers.isEmpty ? 0 : 150,
+          height: trailers.isEmpty ? 0 : 180,
           width: double.infinity,
           child: TrailerBox(
             videoKey: trailer.key,
@@ -40,13 +40,20 @@ class TvTrailerCubit extends Cubit<TvTrailerState> {
         );
       }
       if (trailer.type == 'Trailer' && !trailer.official) {
-        return const Error105(
-            text:
-                'This video contains content from Core Republic, who has blocked it on copyright grounds');
+        return const SizedBox(
+          height: 180,
+          child: Error105(
+              text:
+                  'This video contains content from Core Republic, who has blocked it on copyright grounds'),
+        );
       }
     }
     // trailers.isEmpty
-    return Error105(
-        text: 'Sorry, there ara no official trailer for this $type right now');
+    return SizedBox(
+      height: 180,
+      child: Error105(
+          text:
+              'Sorry, there ara no official trailer for this $type right now'),
+    );
   }
 }

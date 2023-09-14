@@ -8,15 +8,15 @@ import '../../../../../core/constants.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../watch_list/presentation/view_models/watch_list/watch_list_cubit.dart';
 
-class TitleWidget extends StatefulWidget {
+class MovieTitle extends StatefulWidget {
   final MovieModel model;
-  const TitleWidget({Key? key, required this.model}) : super(key: key);
+  const MovieTitle({Key? key, required this.model}) : super(key: key);
 
   @override
-  State<TitleWidget> createState() => _TitleWidgetState();
+  State<MovieTitle> createState() => _MovieTitleState();
 }
 
-class _TitleWidgetState extends State<TitleWidget> {
+class _MovieTitleState extends State<MovieTitle> {
   var inWatchList = false;
 
   @override

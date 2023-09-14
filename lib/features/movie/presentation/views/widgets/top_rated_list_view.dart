@@ -5,7 +5,7 @@ import 'package:night_movie/features/movie/data/models/movie_model/movie_model.d
 import 'package:night_movie/features/movie/presentation/model_views/top_rated_cubit/top_rated_cubit.dart';
 
 import '../../../../../core/utils/helper.dart';
-import '../../../../../core/widgets/movie_poster_image.dart';
+import '../../../../../core/widgets/movie_tv_poster_image.dart';
 import '../../../../../core/widgets/not_avilable_poster_image.dart';
 import '../details_view.dart';
 
@@ -60,12 +60,12 @@ class _TopRatedListViewState extends State<TopRatedListView> {
         separatorBuilder: (context, index) => const SizedBox(width: 10),
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
-            GoRouter.of(context) 
+            GoRouter.of(context)
                 .push(DetailsView.rn, extra: widget.movies[index]);
           },
           child: widget.movies[index].backdropPath == null
               ? const NotAvilablePosterImage()
-              : MoviePosterImage(
+              : MovieTvPosterImage(
                   imageUrl:
                       Helper.getImagePath(widget.movies[index].backdropPath!)),
         ),

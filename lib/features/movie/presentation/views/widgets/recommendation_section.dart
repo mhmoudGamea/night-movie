@@ -6,7 +6,7 @@ import 'package:night_movie/core/widgets/not_avilable_poster_image.dart';
 import '../../../../../core/constants.dart';
 import '../../../../../core/utils/helper.dart';
 import '../../../../../core/widgets/custom_error_box.dart';
-import '../../../../../core/widgets/movie_poster_image.dart';
+import '../../../../../core/widgets/movie_tv_poster_image.dart';
 import '../../model_views/recommendation/recommendation_cubit.dart';
 import '../details_view.dart';
 import 'section_details_header.dart';
@@ -43,7 +43,7 @@ class RecommendationSection extends StatelessWidget {
                     },
                     child: state.recommendations[index].backdropPath == null
                         ? const NotAvilablePosterImage()
-                        : MoviePosterImage(
+                        : MovieTvPosterImage(
                             imageUrl: Helper.getImagePath(
                                 state.recommendations[index].backdropPath!)),
                   ),

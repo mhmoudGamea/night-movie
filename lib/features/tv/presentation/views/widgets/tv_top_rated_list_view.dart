@@ -6,7 +6,7 @@ import 'package:night_movie/features/tv/presentation/model_views/tv_top_rated/tv
 import 'package:night_movie/features/tv/presentation/views/tv_details_view.dart';
 
 import '../../../../../core/utils/helper.dart';
-import '../../../../../core/widgets/movie_poster_image.dart';
+import '../../../../../core/widgets/movie_tv_poster_image.dart';
 import '../../../data/models/tv_model.dart';
 
 class TvTopRatedListView extends StatefulWidget {
@@ -64,7 +64,7 @@ class _TvTopRatedListViewState extends State<TvTopRatedListView> {
           },
           child: widget.tvs[index].backdropPath == null
               ? const NotAvilablePosterImage()
-              : MoviePosterImage(
+              : MovieTvPosterImage(
                   imageUrl:
                       Helper.getImagePath(widget.tvs[index].backdropPath!)),
         ),

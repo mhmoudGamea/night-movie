@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/helper.dart';
-import '../../../../../core/widgets/movie_poster_image.dart';
+import '../../../../../core/widgets/movie_tv_poster_image.dart';
 import '../../../../../core/widgets/not_avilable_poster_image.dart';
 import '../../../data/models/tv_model.dart';
 import '../tv_details_view.dart';
@@ -31,7 +31,7 @@ class TvRecommendationGridView extends StatelessWidget {
         },
         child: recommendations[index].backdropPath == null
             ? const NotAvilablePosterImage()
-            : MoviePosterImage(
+            : MovieTvPosterImage(
                 imageUrl:
                     Helper.getImagePath(recommendations[index].backdropPath!)),
       ),

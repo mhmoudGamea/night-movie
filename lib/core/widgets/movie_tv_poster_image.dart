@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 
 import './shimmer_indicator.dart';
 
-class MoviePosterImage extends StatelessWidget {
+class MovieTvPosterImage extends StatelessWidget {
   final String? imageUrl;
 
-  const MoviePosterImage({Key? key, required this.imageUrl}) : super(key: key);
+  const MovieTvPosterImage({Key? key, required this.imageUrl})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

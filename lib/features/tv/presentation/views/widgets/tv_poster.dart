@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:night_movie/core/utils/helper.dart';
 import 'package:night_movie/core/widgets/movie_tv_poster_image.dart';
-import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
+import 'package:night_movie/features/tv/data/models/tv_detail_model.dart';
 
+import '../../../../../core/utils/helper.dart';
 import '../../../../../core/widgets/custom_rate_widget.dart';
 import '../../../../../core/widgets/not_avilable_poster_image.dart';
-import 'movie_geners.dart';
-import 'movie_title.dart';
+import 'tv_geners.dart';
+import 'tv_title.dart';
 
-class MoviePoster extends StatelessWidget {
-  final MovieModel model;
-  const MoviePoster({Key? key, required this.model}) : super(key: key);
+class TvPoster extends StatelessWidget {
+  final TvDetailModel model;
+  const TvPoster({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,15 +28,17 @@ class MoviePoster extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               const SizedBox(height: 55),
-              MovieTitle(model: model),
+              TvTitle(model: model),
               const SizedBox(height: 10),
               CustomRateWidget(
-                  date: model.releaseDate, rate: model.voteAverage),
+                  date: model.firstAirDate,
+                  rate: model.voteAverage,
+                  numberOfSeasons: model.numberOfSeasons),
               const SizedBox(height: 10),
-              MovieGeners(geners: model.generIds),
+              TvGeners(geners: model.geners),
             ],
           ),
-        ),
+        )
       ],
     );
   }

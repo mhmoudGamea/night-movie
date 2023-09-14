@@ -6,10 +6,10 @@ import 'package:night_movie/features/tv/presentation/views/widgets/tv_recommenda
 import 'seasons_list.dart';
 import 'tabs_section.dart';
 
-class OutsideTabsSection extends StatelessWidget {
+class EpisodesRecommendedTabs extends StatelessWidget {
   final int tvId;
   final int numberOfSeasons;
-  const OutsideTabsSection(
+  const EpisodesRecommendedTabs(
       {Key? key, required this.tvId, required this.numberOfSeasons})
       : super(key: key);
 

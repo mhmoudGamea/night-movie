@@ -4,9 +4,9 @@ import '../../../../../core/utils/helper.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/gener_box.dart';
 
-class MovieGenerGenerated extends StatelessWidget {
+class MovieGeners extends StatelessWidget {
   final List<dynamic>? geners;
-  const MovieGenerGenerated({Key? key, required this.geners}) : super(key: key);
+  const MovieGeners({Key? key, required this.geners}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +21,7 @@ class MovieGenerGenerated extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
               itemCount: myGeners.length,
-              separatorBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Text(
-                  '|',
-                  style: Styles.font13.copyWith(
-                      color: const Color.fromARGB(255, 135, 134, 134)),
-                ),
-              ),
+              separatorBuilder: (context, index) => Helper.generSeparate(),
               itemBuilder: (context, index) => GenerBox(text: myGeners[index]),
             ),
           )
