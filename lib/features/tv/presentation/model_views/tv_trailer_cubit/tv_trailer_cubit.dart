@@ -39,6 +39,9 @@ class TvTrailerCubit extends Cubit<TvTrailerState> {
           ),
         );
       }
+    }
+    // Warning: not official trailer 'll produce networkError while debuging
+    for (var trailer in trailers) {
       if (trailer.type == 'Trailer' && !trailer.official) {
         return const SizedBox(
           height: 180,
@@ -53,7 +56,7 @@ class TvTrailerCubit extends Cubit<TvTrailerState> {
       height: 180,
       child: Error105(
           text:
-              'Sorry, there ara no official trailer for this $type right now'),
+              'Sorry, there ara no official trailer for this $type video right now'),
     );
   }
 }

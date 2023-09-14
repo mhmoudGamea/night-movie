@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/helper.dart';
 import '../../../data/models/tv_detail_model.dart';
 import 'tv_poster.dart';
 import 'tv_trailer.dart';
@@ -18,6 +19,7 @@ class TvDetails extends StatelessWidget {
           const TvTrailer(),
           // series poster, name, date, rate and geners
           Positioned(top: 130, left: 20, child: TvPoster(model: model)),
+          Positioned(top: 0, left: 0, child: Helper.iconBack(context: context)),
         ],
       ),
     );

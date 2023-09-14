@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/helper.dart';
-import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/gener_box.dart';
 
 class MovieGeners extends StatelessWidget {
