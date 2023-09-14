@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -14,7 +16,7 @@ class TvTrailerCubit extends Cubit<TvTrailerState> {
   TvTrailerCubit(this._tvRepo) : super(TvTrailerInitial());
 
   Future<void> fetchTvTrailers({required int tvId}) async {
-    print(tvId);
+    log(tvId.toString());
     emit(TvTrailerLoading());
     var response = await _tvRepo.getTvTrailers(tvId: tvId);
     response.fold((failure) {

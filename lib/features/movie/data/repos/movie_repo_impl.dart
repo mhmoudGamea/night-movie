@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../../../core/constants.dart';
 import '../../../../core/error/failure.dart';
+import '../../../../core/models/cast_model.dart';
 import '../../../../core/models/config_model.dart';
 import '../../../../core/models/trailer_model.dart';
 import '../../../../core/utils/api_services.dart';
@@ -78,6 +79,21 @@ class MovieRepoImpl implements MovieRepo {
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));
       }
+      return left(ServerSideError(error.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<CastModel>>> getCast(
+      {required int movieId}) async {
+    var query = {'api_key': _configModel.apiKey};
+    try {
+      final response = await ApiServices.get(
+          endpoint: '/movie/$movieId/credits', query: query);
+      return right(CastModel.getCast(response));
+    } on DioError catch (error) {
+      return left(ServerSideError.fromDioError(error));
+    } catch (error) {
       return left(ServerSideError(error.toString()));
     }
   }

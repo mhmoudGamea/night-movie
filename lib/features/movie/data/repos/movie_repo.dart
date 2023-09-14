@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:night_movie/core/models/trailer_model.dart';
 
 import '../../../../core/error/failure.dart';
+import '../../../../core/models/cast_model.dart';
 import '../models/movie_model/movie_model.dart';
 
 abstract class MovieRepo {
@@ -17,4 +18,6 @@ abstract class MovieRepo {
   // cloud firestore handling functions
   Future<DocumentReference<Map<String, dynamic>>> addToWatchList(
       String uId, Map<String, dynamic> json);
+
+  Future<Either<Failure, List<CastModel>>> getCast({required int movieId});
 }

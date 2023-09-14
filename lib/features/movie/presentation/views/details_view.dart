@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
+import 'package:night_movie/features/movie/presentation/model_views/cast_cubit/cast_cubit.dart';
 import 'package:night_movie/features/watch_list/data/repos/watch_repo_impl.dart';
 
 import '../../../watch_list/presentation/view_models/watch_list/watch_list_cubit.dart';
@@ -19,15 +20,18 @@ class DetailsView extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => RecommendationCubit(MovieRepoImpl())
-            ..fetchRecommendation(movieId: model.id),
-        ),
-        BlocProvider(
           create: (context) =>
               TrailerCubit(MovieRepoImpl())..fetchTrailer(movieId: model.id),
         ),
         BlocProvider(
           create: (context) => WatchListCubit(WatchRepoImpl()),
+        ),
+        BlocProvider(
+          create: (context) => RecommendationCubit(MovieRepoImpl())
+            ..fetchRecommendation(movieId: model.id),
+        ),
+        BlocProvider(
+          create: (context) => CastCubit(MovieRepoImpl())..getCast(model.id),
         ),
       ],
       child: Scaffold(

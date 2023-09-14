@@ -4,7 +4,9 @@ import 'package:night_movie/core/constants.dart';
 class NotAvilablePosterImage extends StatelessWidget {
   final double height;
   final double width;
-  const NotAvilablePosterImage({Key? key, this.height = 150, this.width = 97.5})
+  final double size;
+  const NotAvilablePosterImage(
+      {Key? key, this.height = 150, this.width = 97.5, this.size = 14})
       : super(key: key);
 
   @override
@@ -17,10 +19,10 @@ class NotAvilablePosterImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         color: primaryFirstDark,
       ),
-      child: const FittedBox(
+      child: FittedBox(
         child: Text(
           'Not Avilable',
-          style: TextStyle(color: Colors.grey),
+          style: TextStyle(color: Colors.grey, fontSize: size),
           textAlign: TextAlign.center,
         ),
       ),

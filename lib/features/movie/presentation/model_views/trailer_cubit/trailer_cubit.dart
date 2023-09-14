@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -14,6 +16,7 @@ class TrailerCubit extends Cubit<TrailerState> {
   TrailerCubit(this._movieRepo) : super(TrailerInitial());
 
   Future<void> fetchTrailer({required int movieId}) async {
+    log(movieId.toString());
     emit(TrailerLoading());
     var response = await _movieRepo.getTrailer(movieId: movieId);
     response.fold((failure) {

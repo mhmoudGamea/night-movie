@@ -47,7 +47,7 @@ class _TitleWidgetState extends State<TitleWidget> {
           width: MediaQuery.of(context).size.width * 0.83,
           child: Text(
             widget.model.title,
-            style: Styles.font17,
+            style: Styles.font17.copyWith(color: primaryColor),
           ),
         ),
         BlocBuilder<WatchListCubit, WatchListState>(
