@@ -297,4 +297,15 @@ class Helper {
       ),
     );
   }
+
+  static LinearGradient getLinearGradiant() {
+    return const LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [
+        Color.fromARGB(255, 31, 31, 33),
+        Color.fromARGB(255, 15, 16, 17),
+      ],
+    );
+  }
 }

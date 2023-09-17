@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 import '../../../../core/error/failure.dart';
+import '../../../../core/models/cast_model.dart';
 import '../../../../core/models/config_model.dart';
 import '../../../../core/models/trailer_model.dart';
 import '../../../../core/utils/api_services.dart';
@@ -13,6 +14,7 @@ import './tv_repo.dart';
 
 class TvRepoImpl implements TvRepo {
   static final _configModel = ServiceLocator.getIt.get<ConfigModel>();
+
   @override
   Future<Either<Failure, List<TvModel>>> getOnTheAir() async {
     try {
@@ -100,10 +102,23 @@ class TvRepoImpl implements TvRepo {
           await ApiServices.get(endpoint: '/tv/$tvId/videos', query: query);
       return right(TrailerModel.getListFromResponse(response));
     } catch (error) {
-      // print(error);
       if (error is DioError) {
         return left(ServerSideError.fromDioError(error));
       }
+      return left(ServerSideError(error.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<CastModel>>> getCast({required int tvId}) async {
+    var query = {'api_key': _configModel.apiKey};
+    try {
+      final response =
+          await ApiServices.get(endpoint: '/tv/$tvId/credits', query: query);
+      return right(CastModel.getCast(response));
+    } on DioError catch (error) {
+      return left(ServerSideError.fromDioError(error));
+    } catch (error) {
       return left(ServerSideError(error.toString()));
     }
   }

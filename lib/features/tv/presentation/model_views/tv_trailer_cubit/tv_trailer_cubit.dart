@@ -20,6 +20,7 @@ class TvTrailerCubit extends Cubit<TvTrailerState> {
     emit(TvTrailerLoading());
     var response = await _tvRepo.getTvTrailers(tvId: tvId);
     response.fold((failure) {
+      log(failure.toString());
       debugPrint(failure.errorMessage);
       emit(TvTrailerFailure(error: failure.errorMessage));
     }, (trailers) {

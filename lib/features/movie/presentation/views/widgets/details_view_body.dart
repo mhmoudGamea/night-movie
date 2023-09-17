@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
 import 'package:night_movie/features/movie/presentation/views/widgets/movie_description.dart';
 
-import '../../../../../core/widgets/cast_builder.dart';
+import '../../../../../core/utils/helper.dart';
+import 'movie_cast_builder.dart';
 import './recommendation_section.dart';
 import 'details.dart';
 
@@ -14,15 +15,8 @@ class DetailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: double.infinity,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color.fromARGB(255, 31, 31, 33),
-            Color.fromARGB(255, 15, 16, 17),
-          ],
-        ),
+      decoration: BoxDecoration(
+        gradient: Helper.getLinearGradiant(),
       ),
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -31,7 +25,7 @@ class DetailsViewBody extends StatelessWidget {
           children: [
             Details(model: model),
             MovieDescription(overview: model.overview),
-            const CastBuilder(),
+            const MovieCastBuilder(),
             const SizedBox(height: 5),
             const RecommendationSection(),
           ],

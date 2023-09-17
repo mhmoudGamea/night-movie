@@ -4,6 +4,7 @@ import 'package:night_movie/core/models/trailer_model.dart';
 import 'package:night_movie/features/tv/data/models/tv_detail_model.dart';
 import 'package:night_movie/features/tv/data/models/tv_episodes_model.dart';
 
+import '../../../../core/models/cast_model.dart';
 import '../models/tv_model.dart';
 
 abstract class TvRepo {
@@ -16,6 +17,7 @@ abstract class TvRepo {
       {required int tvId, required int seasonNumber});
   Future<Either<Failure, List<TrailerModel>>> getTvTrailers(
       {required int tvId});
+  Future<Either<Failure, List<CastModel>>> getCast({required int tvId});
   Future<Either<Failure, List<TvModel>>> getTvRecommendations(
       {required int tvId});
 }

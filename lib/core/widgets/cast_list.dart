@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../features/movie/presentation/views/widgets/section_details_header.dart';
+import 'section_details_header.dart';
 import '../constants.dart';
 import '../models/cast_model.dart';
 import 'cast_item.dart';

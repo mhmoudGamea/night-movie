@@ -5,6 +5,7 @@ import 'package:night_movie/core/widgets/shimmer_grid_view_2_.dart';
 import 'package:night_movie/features/movie/data/models/movie_model/movie_model.dart';
 
 import '../../../../../core/constants.dart';
+import '../../../../../core/utils/helper.dart';
 import '../../../../../core/widgets/custom_error_box.dart';
 import '../../../../movie/presentation/views/widgets/top_rated_movie_grid_view_list.dart';
 import 'c_no_watch_list_yet.dart';
@@ -23,7 +24,10 @@ class _WatchListViewBodyState extends State<WatchListViewBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: primarySecondDark,
+      decoration: BoxDecoration(
+        gradient: Helper.getLinearGradiant(),
+        color: primarySecondDark,
+      ),
       child: StreamBuilder<QuerySnapshot>(
         stream: _watchLists,
         builder: (context, snapshot) {

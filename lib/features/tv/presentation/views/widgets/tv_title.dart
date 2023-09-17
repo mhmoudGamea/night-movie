@@ -16,9 +16,13 @@ class TvTitle extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          model.name,
-          style: Styles.font17,
+        Flexible(
+          child: Text(
+            model.name,
+            style: Styles.font17,
+            maxLines: 2,
+            overflow: TextOverflow.fade,
+          ),
         ),
         IconButton(
           padding: EdgeInsets.zero,

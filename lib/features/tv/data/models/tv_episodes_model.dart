@@ -1,4 +1,6 @@
 // thismodel used for tvEpisodesCubit (episodes in each season),
+import 'dart:developer';
+
 import 'package:equatable/equatable.dart';
 
 class TvEpisodeModel extends Equatable {
@@ -35,8 +37,9 @@ class TvEpisodeModel extends Equatable {
   static List<TvEpisodeModel> getListFromResponse(
       Map<String, dynamic> response) {
     List<TvEpisodeModel> tvEposideList = [];
-    response['results']
+    response['episodes']
         .forEach((data) => tvEposideList.add(TvEpisodeModel.fromJson(data)));
+    log(tvEposideList.length.toString());
     return tvEposideList;
   }
 

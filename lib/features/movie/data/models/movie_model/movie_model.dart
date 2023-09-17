@@ -74,4 +74,4 @@ class MovieModel extends Equatable {
         title,
         voteAverage,
       ];
-}
+} 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:night_movie/features/tv/presentation/model_views/tv_cast_cubit/tv_cast_cubit.dart';
 import 'package:night_movie/features/tv/presentation/model_views/tv_episodes/tv_episodes_cubit.dart';
 import 'package:night_movie/features/tv/presentation/model_views/tv_trailer_cubit/tv_trailer_cubit.dart';
 
@@ -26,6 +27,9 @@ class TvDetailsView extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => TvEpisodesCubit(TvRepoImpl()),
+        ),
+        BlocProvider(
+          create: (context) => TvCastCubit(TvRepoImpl())..getCast(tvSeriesId),
         ),
       ],
       child: const Scaffold(

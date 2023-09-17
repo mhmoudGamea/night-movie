@@ -51,10 +51,10 @@ class TvEpisodesCubit extends Cubit<TvEpisodesState> {
     });
   }
 
-  Future<void> fetchEpisodes(int tvId, int seasonnumber) async {
+  Future<void> fetchEpisodes(int tvId, int seasonNumber) async {
     emit(TvEpisodesLoading());
     final response =
-        await _tvRepo.getEpisodes(tvId: tvId, seasonNumber: seasonnumber);
+        await _tvRepo.getEpisodes(tvId: tvId, seasonNumber: seasonNumber);
     response.fold(
       (failure) {
         emit(TvEpisodesFailure(error: failure.errorMessage));

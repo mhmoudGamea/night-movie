@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/constants.dart';
+import '../../../../../core/utils/helper.dart';
 import '../../view_models/search_cubit/search_cubit.dart';
 import 'search_list_view.dart';
 import 'text_form_field_widget.dart';
@@ -13,14 +14,8 @@ class SearchViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color.fromARGB(255, 23, 23, 24),
-              Color.fromARGB(255, 23, 23, 24),
-            ]),
+      decoration: BoxDecoration(
+        gradient: Helper.getLinearGradiant(),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),

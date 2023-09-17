@@ -33,9 +33,10 @@ class TabsSection extends StatelessWidget {
                     margin: const EdgeInsets.only(right: 20),
                     decoration: BoxDecoration(
                       border: data.getSeasonsTabValue
-                          ? const Border(
-                              bottom:
-                                  BorderSide(color: primaryColor, width: 2.5),
+                          ? Border(
+                              bottom: BorderSide(
+                                  color: primaryColor.withOpacity(0.4),
+                                  width: 2.5),
                             )
                           : null,
                     ),
@@ -57,9 +58,10 @@ class TabsSection extends StatelessWidget {
                     margin: const EdgeInsets.only(left: 20),
                     decoration: BoxDecoration(
                       border: data.getMoreLikeThisTabValue
-                          ? const Border(
-                              bottom:
-                                  BorderSide(color: primaryColor, width: 2.5),
+                          ? Border(
+                              bottom: BorderSide(
+                                  color: primaryColor.withOpacity(0.4),
+                                  width: 2.5),
                             )
                           : null,
                     ),

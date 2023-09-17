@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:night_movie/core/widgets/shimmer_indicator.dart';
@@ -11,6 +13,7 @@ class TvTrailer extends StatelessWidget {
     final trailer = BlocProvider.of<TvTrailerCubit>(context);
     return BlocBuilder<TvTrailerCubit, TvTrailerState>(
       builder: (context, state) {
+        log(state.toString());
         if (state is TvTrailerFailure) {
           return Center(
             child: Text(state.error),

@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:night_movie/features/tv/presentation/views/widgets/tv_description.dart';
 
 import '../../../../../core/utils/helper.dart';
 import '../../../../../core/utils/styles.dart';
@@ -50,16 +51,7 @@ class EpisodeItem extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 5),
-        Wrap(
-          children: [
-            Text(
-              episode.overview,
-              style: Styles.font13.copyWith(color: Colors.grey[500]),
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-            )
-          ],
-        ),
+        TvDescription(overview: episode.overview, horizontalPadding: 0),
       ],
     );
   }
