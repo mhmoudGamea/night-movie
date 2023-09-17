@@ -15,6 +15,7 @@ void main() async {
   await ServiceLocator.setUp();
   ApiServices.initializeDio();
   AppRoutes.getAuthState();
+  //entry point of the program
   runApp(const NightMovie());
 }
 
