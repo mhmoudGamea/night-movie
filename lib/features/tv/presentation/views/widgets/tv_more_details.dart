@@ -35,7 +35,6 @@ class TvMoreDetails extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 constraints: const BoxConstraints(),
                 onPressed: () async {
-                  // print(model.homePage);
                   model.homePage.isEmpty
                       ? Helper.showToast(
                           context: context,

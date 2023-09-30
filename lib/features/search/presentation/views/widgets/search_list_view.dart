@@ -18,8 +18,6 @@ class SearchListView extends StatelessWidget {
       separatorBuilder: (context, index) => const SizedBox(height: 10),
       itemBuilder: (context, index) => GestureDetector(
         onTap: () {
-          //print(searchList[index].mediaType);
-
           if (searchList[index].mediaType == 'movie') {
             GoRouter.of(context).push(DetailsView.rn, extra: searchList[index]);
           } else {

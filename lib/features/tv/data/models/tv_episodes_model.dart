@@ -39,7 +39,6 @@ class TvEpisodeModel extends Equatable {
     List<TvEpisodeModel> tvEposideList = [];
     response['episodes']
         .forEach((data) => tvEposideList.add(TvEpisodeModel.fromJson(data)));
-    log(tvEposideList.length.toString());
     return tvEposideList;
   }
 

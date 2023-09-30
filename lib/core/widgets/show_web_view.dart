@@ -21,7 +21,6 @@ class _ShowWebViewState extends State<ShowWebView> {
 
   @override
   Widget build(BuildContext context) {
-    // print(widget.url);
     return Scaffold(
       body: WebViewWidget(
         controller: controller,

@@ -16,11 +16,9 @@ class TrailerCubit extends Cubit<TrailerState> {
   TrailerCubit(this._movieRepo) : super(TrailerInitial());
 
   Future<void> fetchTrailer({required int movieId}) async {
-    log(movieId.toString());
     emit(TrailerLoading());
     var response = await _movieRepo.getTrailer(movieId: movieId);
     response.fold((failure) {
-      debugPrint(failure.errorMessage);
       emit(TrailerFailure(error: failure.errorMessage));
     }, (trailers) {
       emit(TrailerSuccess(trailers: trailers));

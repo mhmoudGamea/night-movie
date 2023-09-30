@@ -30,12 +30,10 @@ class _SeasonItemState extends State<SeasonItem> {
           onTap: () async {
             await data.fetchEpisodes(widget.tvId, widget.seasonNumber);
             tvEpisodes = data.getTvEpisodes;
-            // log(tvEpisodes.length.toString());
 
             setState(() {
               _isExpanded = !_isExpanded;
             });
-            // log(_isExpanded.toString());
           },
           child: ShowEpisodesButton(widget: widget, isExpanded: _isExpanded),
         ),

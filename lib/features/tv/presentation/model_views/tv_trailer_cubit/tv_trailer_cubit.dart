@@ -16,12 +16,9 @@ class TvTrailerCubit extends Cubit<TvTrailerState> {
   TvTrailerCubit(this._tvRepo) : super(TvTrailerInitial());
 
   Future<void> fetchTvTrailers({required int tvId}) async {
-    log(tvId.toString());
     emit(TvTrailerLoading());
     var response = await _tvRepo.getTvTrailers(tvId: tvId);
     response.fold((failure) {
-      log(failure.toString());
-      debugPrint(failure.errorMessage);
       emit(TvTrailerFailure(error: failure.errorMessage));
     }, (trailers) {
       emit(TvTrailerSuccess(trailers: trailers));
