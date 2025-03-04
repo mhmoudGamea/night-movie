@@ -99,7 +99,7 @@ class GridViewListItem extends StatelessWidget {
                 Text(
                   model is TvModel ? model.name : model.title,
                   style: Styles.font16,
-                  maxLines: 2,
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
