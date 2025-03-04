@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../../../../core/constants.dart';
+import '../../../../core/utils/styles.dart';
 import '../../../tv/presentation/views/tv_view.dart';
 import '../../../../core/widgets/drawer_widget.dart';
 import 'movie_view.dart';
@@ -33,6 +35,12 @@ class _TabsMainViewState extends State<TabsMainView> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
+        backgroundColor: const Color(0xFF0F1011),
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.black,
+          statusBarBrightness: Brightness.light,
+        ),
         leading: IconButton(
           padding: EdgeInsets.zero,
           constraints: const BoxConstraints(),
@@ -49,7 +57,7 @@ class _TabsMainViewState extends State<TabsMainView> {
         ),
         centerTitle: true,
         elevation: 15,
-        title: Text(getScreen(_currentIndex)['title']),
+        title: Text(getScreen(_currentIndex)['title'], style: Styles.font17),
       ),
       body: Container(
         decoration: const BoxDecoration(

@@ -1,5 +1,4 @@
 // thismodel used for tvEpisodesCubit (episodes in each season),
-import 'dart:developer';
 
 import 'package:equatable/equatable.dart';
 

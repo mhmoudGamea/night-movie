@@ -10,28 +10,34 @@ abstract class Failure {
 class ServerSideError extends Failure {
   ServerSideError(super.errorMessage);
 
-  factory ServerSideError.fromDioError(DioError dioError) {
+  factory ServerSideError.fromDioError(DioException dioError) {
     switch (dioError.type) {
-      case DioErrorType.connectTimeout:
+      case DioExceptionType.connectionTimeout:
         return ServerSideError('Connection timed out, Please try again later');
-      case DioErrorType.sendTimeout:
+      case DioExceptionType.sendTimeout:
         return ServerSideError('Send timed out, Please try again later');
-      case DioErrorType.receiveTimeout:
+      case DioExceptionType.receiveTimeout:
         return ServerSideError('Receive timed out, Please try again later');
-      case DioErrorType.response:
+      case DioExceptionType.badCertificate:
+        return ServerSideError(
+            'Bad certificate, Please check your certificate settings.');
+      case DioExceptionType.badResponse:
         return ServerSideError.fromResponse(
             dioError.response!.statusCode!, dioError.response!.data);
-      case DioErrorType.cancel:
-        return ServerSideError('Request to api was canceled.');
-      case DioErrorType.other:
-        if (dioError.message.contains('SocketException')) {
+      case DioExceptionType.cancel:
+        return ServerSideError('Request to API was canceled.');
+      case DioExceptionType.connectionError:
+        if (dioError.message?.contains('SocketException') ?? false) {
           return ServerSideError(
-              'No internet connection, Please checkout your internet connection.');
+              'No internet connection, Please check your internet connection.');
         }
-        return ServerSideError('UnExpected error please try again.');
+        return ServerSideError('Unexpected error, please try again.');
+      case DioExceptionType.unknown:
+        return ServerSideError(
+            'Oops, there was an error, please try again later.');
       default:
         return ServerSideError(
-            'Opps there was an error, Please try again later.');
+            'Oops, there was an error, please try again later.');
     }
   }
 
@@ -45,7 +51,7 @@ class ServerSideError extends Failure {
       return ServerSideError('Internal server error, Please try later.');
     } else {
       return ServerSideError(
-          'Opps there was an error, Please try again later.');
+          'Oops, there was an error, please try again later.');
     }
   }
 }

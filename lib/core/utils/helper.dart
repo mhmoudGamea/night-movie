@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -51,12 +52,18 @@ class Helper {
     return AppBar(
       centerTitle: true,
       elevation: 15,
-      title: Text(name),
+      backgroundColor: const Color(0xFF0F1011),
+      surfaceTintColor: Colors.transparent,
+      systemOverlayStyle: const SystemUiOverlayStyle(
+        statusBarColor: Colors.black,
+        statusBarBrightness: Brightness.light,
+      ),
+      title: Text(name, style: Styles.font16.copyWith(color: Colors.white)),
       leading: IconButton(
         onPressed: () {
           GoRouter.of(context).pop();
         },
-        icon: const Icon(Icons.arrow_back_ios_rounded),
+        icon: const Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
       ),
     );
   }

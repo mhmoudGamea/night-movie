@@ -33,10 +33,10 @@ class DetailsCubit extends Cubit<DetailsState> {
 
   void tvWebView({
     required BuildContext context,
-    required bool isValidUrl,
+    required bool isEmpty,
     required String url,
   }) {
-    if (!isValidUrl) {
+    if (isEmpty) {
       Helper.showToast(
           context: context,
           color: Colors.amber,

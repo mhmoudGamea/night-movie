@@ -28,9 +28,11 @@ class TvTitle extends StatelessWidget {
           padding: EdgeInsets.zero,
           constraints: const BoxConstraints(),
           onPressed: () {
+            print(model.homePage);
+            print(model.homePage.isEmpty);
             webViewCheck.tvWebView(
                 context: context,
-                isValidUrl: model.homePage.isEmpty,
+                isEmpty: model.homePage.isEmpty,
                 url: model.homePage);
           },
           icon: Image.asset(
