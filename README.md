@@ -1,40 +1,65 @@
-<div style="display:flex; justify-content: center; align-items: center">
-  <img src='demo%20screenshots/Screenshot_20230419-225242.png' width='230'/>
-  <img src='demo%20screenshots/web%20preview.png' width='230'/>
-  <img src='demo%20screenshots/Screenshot_20230419-223721.png' width='230'/>
-  <img src='demo%20screenshots/Screenshot_20230930-053146.png' width='230'/>
-  <img src='demo%20screenshots/Screenshot_20230930-053422.png' width='230'/>
-  <img src='demo%20screenshots/Screenshot_20230930-060211.png' width='230'/>
-  <img src='demo%20screenshots/Screenshot_20230419-224303.png' width='230'/>
-  <img src='demo%20screenshots/Screenshot_20230316-151241.png' width='230'/>
-</div>
+# Night Movies Application
 
-<h4>more screenshots in demo screenshots folder <a href="https://github.com/mhmoudGamea/night-movie/tree/main/demo%20screenshots">  go</a></h4>
+![App Preview](demo_image/night_movie.png)
 
-<hr/>
-<h4>Features that i use</h4>
+A Flutter-based movies and TV shows application powered by TMDb APIs, featuring modern architecture (MVVM + BLoC), smooth user experience, and advanced search and watchlist functionalities.
 
-> i use mvvm pattern in this app and bloc as state managment
+## Overview
 
-> using shimmer package to make image appear smoothly and nicely also i use cached network images
+Night Movies App provides a seamless way for users to explore, search, and manage their favorite movies and TV series.  
+With a clean architecture built on MVVM, robust state management using BLoC, and principles of SOLID/OOP, the app demonstrates enterprise-level development practices adapted to the entertainment domain.
 
-> using repos, abstract classes encapsulation and many of oop principles
+The application integrates TMDb’s API for real-time movie and TV show data, enabling trailers, multi-search, and watchlist management with optimized performance and maintainability.
 
-> using solid priciples like single responcibility and dependency inversion
+## Key Features
 
-> using dartz package to return either [error or wanted data] and Equatable package
+### Core Application Features
+- **Browse Movies & TV Shows**: Discover trending, popular, and top-rated content
+- **Multi-Search**: Search across both movies and TV shows with a single query
+- **Watchlist**: Add or remove items from a personalized watchlist
+- **Trailers Integration**: Watch trailers for movies and TV series directly inside the app
 
-> in search i use multi search api to search about tv series or movies
+### User Experience
+- Shimmer loading animations for smooth image placeholders
+- Cached network images for optimized loading performance
+- Infinite scrolling with efficient pagination support
 
-> use get_it package for (DI) pattern
+### Architecture & Development Practices
 
-> using JSON serialization to get secure data like api_key and deserialization
+| Practice | Description |
+|----------|-------------|
+| **MVVM Pattern** | Clear separation of concerns between UI, business logic, and data layers |
+| **BLoC (Business Logic Component)** | Predictable and reactive state management |
+| **SOLID Principles** | Applied principles like Single Responsibility and Dependency Inversion |
+| **Repository Pattern** | Abstraction layer to separate data sources from business logic |
+| **Error Handling (Dartz)** | Functional approach using Either type for handling failures safely |
+| **Equatable** | Ensures value-based equality for state and data classes |
+| **GetIt (Dependency Injection)** | Service locator for easy and scalable dependency management |
 
-<hr/>
-<h4>What i add</h4>
 
-> i have recently add pagination feature to the app
+## Tech Stack
 
-> i add movie trailers to movie section and tv trailers for tv section
+| Category | Technology | Purpose |
+|----------|------------|---------|
+| **Framework** | Flutter (Dart) | Cross-platform development |
+| **State Management** | BLoC | Reactive & predictable state handling |
+| **Architecture** | MVVM + Repository Pattern | Clean, testable, scalable code |
+| **Networking** | Dio | API calls & interceptors |
+| **Local Storage** | Hive | Watchlist & offline persistence |
+| **Image Handling** | Cached Network Image + Shimmer | Smooth UX & caching |
+| **Dependency Injection** | GetIt | Service locator pattern |
+| **Functional Programming** | Dartz | Either/Failure handling |
 
-> the user can add or remove it's movie to or from watchList
+## Security & Data Handling
+
+- API key management via JSON serialization/deserialization  
+- Encapsulation and abstraction for secure API communication  
+- Clean architecture layers ensure maintainable, safe code  
+
+## What’s New
+
+- Added **pagination** for infinite scrolling  
+- Integrated **trailers** for both movies and TV shows  
+- Enhanced **watchlist management** with Hive persistence  
+
+**Note**: This project was originally developed as a training application to practice advanced Flutter concepts, architecture patterns, and clean coding principles.
