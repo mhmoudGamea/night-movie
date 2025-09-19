@@ -62,4 +62,6 @@ The application integrates TMDb’s API for real-time movie and TV show data, en
 - Integrated **trailers** for both movies and TV shows  
 - Enhanced **watchlist management** with Hive persistence  
 
+---
+
 **Note**: This project was originally developed as a training application to practice advanced Flutter concepts, architecture patterns, and clean coding principles.
